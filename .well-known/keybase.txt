@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/milanaryal
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://milanaryal.com.np
+  * I am milanaryal (https://keybase.io/milanaryal) on keybase.
+  * I have a public key with fingerprint 310B 1544 4945 F1A3 108E  B0A7 B51C F15F F0E9 5927
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01019f644dd0162eabf482c543c78569ca0df869645f3724167ae6ff6e1e08fcd6cf0a",
+      "fingerprint": "310b15444945f1a3108eb0a7b51cf15ff0e95927",
+      "host": "keybase.io",
+      "key_id": "b51cf15ff0e95927",
+      "kid": "01019f644dd0162eabf482c543c78569ca0df869645f3724167ae6ff6e1e08fcd6cf0a",
+      "uid": "89903734f4bed6d07b385a6be0f19819",
+      "username": "milanaryal"
+    },
+    "service": {
+      "hostname": "milanaryal.com.np",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1526629026,
+  "expire_in": 157680000,
+  "prev": "fdb55cda54afbe5f33bb5fbf4428ce77d340e12a24afa0c557a77a18825f110d",
+  "seqno": 45,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.77
+Comment: https://keybase.io/crypto
+
+yMIpAnicrVJdSBRRFF61xCQpwpCSMiejwM3unZk7P1u+2A9IYkgWGMJ2Z+ZenXac
+WXfXzU2EULICe+gHKTXDH0qQsIeVKCxT0pd+N6SXitSgDOkhC5EerDtST/XYfbmc
+c77vu9859zzOSPGkJ+0dPNN/+U3yXNKT0Rt1nmNLTT0NnOYYMc7XwAXI8kUsg4Qj
+/oBpcD4OQABVKomiYQAo8QRrVFR4HYmCLitIUnUMDKpIqiQiKsi8CCUZE4lSiUAC
+FKobkk4B5rwcNe0qEgqGTDvCZAUINIhEUVQZD2IWKkQDWNYQ1ClElAKiIpWXGbHa
+CbsMZk7DYVJgOizHAv+yvX/g/7PvumU5RVWBIAsiFTViSAaQNUFBWNIIoFBVoOoC
+wyRk4xrC0DWmhW0cimGLa/RyLB81deKO1u3lL0yB7tQU2EEmEQw5EUd3LFaujkSC
+YZ9Lj8SCLv4k0fy/lfyaaRtsnIwRJaGw6dicDzKkHjFdaYh4SeJVwEtejtQHzRDx
+my4CyZIC2HHfIVEmSQ0NId3ASMRUI2wOgqYhygYl8opOZNkQREAgj3lWx0BHSMay
+jKGi8OzPIDA4t7da2+F8ImI+cRXTDJtVNo7UhQjXOPaocoUnKd2TujLZ3TNP+qq1
+f7av812a52Vn/epoC/fjSIxUwuhEiVg4emkh90y8Y2rDhHK9d2ci72phouIQuTKe
+efBD8+KXmcB4TysfuKcVD6WmjhQHAneTEinRT4OJoqhwe9+NeOfnNdO5qHR6l3fz
+5XVf27rjOTnf7q9PHjas480/8xaWup2u1wcOtzjNVvnuF329D69e3Db2IAbzrayj
+tfLH1pGSyuGiucDs23PezE0b++iW4oG++ZnsO1Z/d/mt/W3tU2nfs89tL81S94/N
+Hz/x7PTFp/lK3HMhZ6TsfM/7pr18Rln7wHzTumtlvcaOQ6fqJypaEpNdbcMLQ7uT
+Z189ONuZMdmzZ2vHUj+Ai89nl7pvWr8An+tIBw==
+=IGyS
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/milanaryal
+
+==================================================================

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Milan Aryal</ShortName>
+  <Description>Search Milan Aryal</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image height="16" width="16" type="image/png">https://milanaryal.com.np/assets/img/favicon-16x16.png</Image>
+  <Image height="32" width="32" type="image/png">https://milanaryal.com.np/assets/img/favicon-32x32.png</Image>
+  <Image width="48" height="48" type="image/x-icon">https://milanaryal.com.np/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://milanaryal.com.np/search/?q={searchTerms}"/>
+  <moz:SearchForm>https://milanaryal.com.np/search/</moz:SearchForm>
+</OpenSearchDescription>

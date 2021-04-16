@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-04-16T21:03:05+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">Minify Jekyll’s final HTML output files</title><link href="https://milanaryal.com.np/minify-jekyll-final-html-output-files/" rel="alternate" type="text/html" title="Minify Jekyll’s final HTML output files" /><published>2021-04-10T06:00:00+05:45</published><updated>2021-04-10T06:00:00+05:45</updated><id>https://milanaryal.com.np/minify-jekyll-final-html-output-files</id><content type="html" xml:base="https://milanaryal.com.np/minify-jekyll-final-html-output-files/">&lt;p&gt;Site assets minifying (or in another word compressing) helps to decrease site load and speed up browser loading time. Just like with CSS and JavaScript, HTML output can be compressed and minified by removing whitespace, new lines, comments and even removing certain optional closing tags, making for smaller file sizes.&lt;/p&gt;
+
+&lt;p&gt;Popular static site generator, Hugo version 0.47 introduced the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--minify&lt;/code&gt; flag command which execute to minify the final HTML output to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/public&lt;/code&gt; by simply running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hugo --minify&lt;/code&gt;. Here, we are going to use the same dependency &lt;a href=&quot;https://github.com/tdewolff/minify&quot; rel=&quot;nofollow&quot;&gt;Minify&lt;/a&gt; written in Go language by &lt;em&gt;Taco de Wolff&lt;/em&gt;. It’s extremely fast compare to other minify tools (and depends upon your site weight).&lt;/p&gt;
+
+&lt;p&gt;Following I have written simple procedures to Minify HTML pages after they have been generated locally with a static website generator like Jekyll.&lt;/p&gt;
+
+&lt;h4 id=&quot;building-site-with-jekyll&quot;&gt;Building site with Jekyll&lt;/h4&gt;
+
+&lt;p&gt;First build Jekyll final production site with the following command line:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll build &lt;span class=&quot;nt&quot;&gt;--profile&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--trace&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;install-minify-deb-package-on-ubuntu&quot;&gt;Install minify deb package on Ubuntu&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tdewolff/minify/tree/master/cmd/minify#installation&quot; rel=&quot;nofollow&quot;&gt;CLI installation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;minify
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;minify-html-files&quot;&gt;Minify HTML files&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tdewolff/minify/tree/master/cmd/minify#usage&quot; rel=&quot;nofollow&quot;&gt;Usage&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;minify &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./_site&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt;html &lt;span class=&quot;nt&quot;&gt;--html-keep-conditional-comments&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--html-keep-default-attrvals&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--html-keep-document-tags&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--html-keep-end-tags&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--html-keep-quotes&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./_site&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;minify-xml-files&quot;&gt;Minify XML files&lt;/h4&gt;
+
+&lt;p&gt;You can also minify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*.XML&lt;/code&gt; files with following command line:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;minify &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./_site&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt;xml &lt;span class=&quot;nt&quot;&gt;--xml-keep-whitespace&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./_site&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;minify-json-files&quot;&gt;Minify JSON files&lt;/h4&gt;
+
+&lt;p&gt;You can also minify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*.json&lt;/code&gt; files with following command line:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;minify &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./_site&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--match&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt;json &lt;span class=&quot;s2&quot;&gt;&quot;./_site&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;build-minify-and-deploy-jekyll-site-into-github-pages-using-github-actions&quot;&gt;Build, minify and deploy Jekyll site into GitHub Pages using GitHub Actions&lt;/h3&gt;
+
+&lt;p&gt;If you have hosted your site in GitHub Pages, you can create a workflow for a continuous integration.&lt;/p&gt;
+
+&lt;p&gt;GitHub Actions are registered for a repository by using a YAML file inside the directory path &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.github/workflows&lt;/code&gt; (note the dot at the start).&lt;/p&gt;
+
+&lt;p&gt;Create a &lt;strong&gt;workflow file&lt;/strong&gt;, say &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;workflow.yml&lt;/code&gt;, using either the GitHub interface or by pushing a YAML file to the workflow directory path manually.&lt;/p&gt;
+
+&lt;p&gt;The base contents are:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;My workflow&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;RUBY_VERSION&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2.7&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gh-pages&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Clone repository&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v2&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Set up Ruby&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ruby/setup-ruby@v1&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;ruby-version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;${{ env.RUBY_VERSION }}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Not needed with a .ruby-version file&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;bundler-cache&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# runs 'bundle install' and caches installed gems automatically&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Building site&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;JEKYLL_ENV=production bundle exec jekyll build --profile --trace&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Install minify deb package on Ubuntu&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sudo apt-get -y install minify&lt;/span&gt;
+
+      &lt;span class=&quot;c1&quot;&gt;# https://github.com/tdewolff/minify/tree/master/cmd/minify#usage&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Minify HTML files&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;minify -r -o &quot;./_site&quot; --match=\.html \&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;--html-keep-conditional-comments \&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;--html-keep-default-attrvals \&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;--html-keep-document-tags \&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;--html-keep-end-tags \&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;--html-keep-quotes \&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;&quot;./_site&quot;&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Minify XML files&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;minify -r -o &quot;./_site&quot; --match=\.xml --xml-keep-whitespace &quot;./_site&quot; || true&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Minify JSON files&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;minify -r -o &quot;./_site&quot; --match=\.json &quot;./_site&quot; || true&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Deploy&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;peaceiris/actions-gh-pages@v3&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;success()&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;allow_empty_commit&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;cname&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;yoursite.com.np&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;github_token&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;${{ secrets.GITHUB_TOKEN }}&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;publish_branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gh-pages&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;publish_dir&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./_site/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After so much research and testings I have found, this is the best and fastest method to minify Jekyll’s output HTML files for your site.&lt;/p&gt;
+
+&lt;p&gt;If you search on &lt;em&gt;Google&lt;/em&gt; you can also find another alternative, Jekyll &lt;a href=&quot;https://github.com/penibelst/jekyll-compress-html&quot; rel=&quot;nofollow&quot;&gt;layout that compresses HTML&lt;/a&gt; which is written in pure Liquid. But note that, I do not recommend using it because it slow down your Jekyll build time and has not been updated since long time.&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Compress and minify HTML files after they have been generated locally with a static website generator like Jekyll.</summary></entry><entry><title type="html">20 golden rules for traders</title><link href="https://milanaryal.com.np/20-golden-rules-for-traders/" rel="alternate" type="text/html" title="20 golden rules for traders" /><published>2021-03-24T10:00:00+05:45</published><updated>2021-03-24T10:00:00+05:45</updated><id>https://milanaryal.com.np/20-golden-rules-for-traders</id><content type="html" xml:base="https://milanaryal.com.np/20-golden-rules-for-traders/">&lt;p&gt;&lt;strong&gt;Want to trade successfully?&lt;/strong&gt; Just choose the good positions and avoid the bad ones. Poor trade selection takes a heavy toll as it bleeds your confidence and wallet. You face many crossroads during each market day. Without a system of discipline for your decision-making, impulse and emotion will undermine skills as you chase the wrong stocks at the worst times.&lt;/p&gt;
+
+&lt;p&gt;Many short-term players view trading as a form of gambling. &lt;strong&gt;Without planning or discipline&lt;/strong&gt;, they throw money at the market. The occasional big score reinforces this easy money attitude but sets them up for ultimate failure. Without defensive rules, insiders easily feed off these losers and send them off to other hobbies.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Technical Analysis teaches traders to execute positions based on numbers, time and volume.&lt;/strong&gt; This discipline forces traders to distance themselves from reckless gambling behavior. Through detached execution and solid risk management, short-term trading finally “works”.&lt;/p&gt;
+
+&lt;p&gt;Markets echo similar patterns over and over again. &lt;strong&gt;The science of trend allows you to build systematic rules to play these repeating formations and avoid the chase&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Forget the news, remember the chart. You’re not smart enough to know how news will affect price. The chart already knows the news is coming.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Buy the first pullback from a new high. Sell the first pullback from a new low. There’s always a crowd that missed the first boat.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Buy at support, sell at resistance.&lt;/strong&gt; Everyone sees the same thing and they’re all just waiting to jump in the pool.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Short rallies not selloffs. When markets drop, shorts finally turn a profit and get ready to cover.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Don’t buy up into a major moving average or sell down into one. See #3.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Don’t chase momentum if you can’t find the exit.&lt;/strong&gt; Assume the market will reverse the minute you get in. If it’s a long way to the door, you’re in big trouble.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Exhaustion gaps get filled. Breakaway and continuation gaps don’t. The old traders’ wisdom is a lie. Trade in the direction of gap support whenever you can.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Trends test the point of last support/resistance.&lt;/strong&gt; Enter here even if it hurts.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trade with the TICK not against it. Don’t be a hero. Go with the money flow.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you have to look, it isn’t there. Forget your college degree and trust your instincts.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sell the second high, buy the second low. After sharp pullbacks, the first test of any high or low always runs into resistance. Look for the break on the third or fourth try.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The trend is your friend in the last hour. As volume cranks up at 3:00pm don’t expect anyone to change the channel.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Avoid the open. They see YOU coming sucker&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;1-2-3-Drop-Up. Look for downtrends to reverse after a top, two lower highs and a double bottom.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Bulls live above the 200 day, bears live below.&lt;/strong&gt; Sellers eat up rallies below this key moving average line and buyers to come to the rescue above it.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Price has memory. What did price do the last time it hit a certain level? Chances are it will do it again.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Big volume kills moves. Climax blow-offs take both buyers and sellers out of the market and lead to sideways action.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trends never turn on a dime. Reversals build slowly. The first sharp dip always finds buyers and the first sharp rise always finds sellers.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bottoms take longer to form than tops. &lt;strong&gt;Fear acts more quickly than greed and causes stocks to drop from their own weight.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Beat the crowd in and out the door. You have to take their money before they take yours, period.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Discussion in ‘Commodity Futures’ started by &lt;em&gt;&lt;a href=&quot;https://www.elitetrader.com/et/threads/trading-rule-20-golden-rules-for-traders.3417/&quot; rel=&quot;nofollow&quot;&gt;steet010203&lt;/a&gt;&lt;/em&gt;, Jan 1, 2002.&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">A list of the best 20 forex and stock trading rules for successful traders out there.</summary></entry><entry><title type="html">Deploying Jekyll [v4] sites to GitHub Pages using GitHub Actions</title><link href="https://milanaryal.com.np/deploying-jekyll-sites-to-github-pages-using-github-actions/" rel="alternate" type="text/html" title="Deploying Jekyll [v4] sites to GitHub Pages using GitHub Actions" /><published>2021-03-21T11:30:00+05:45</published><updated>2021-03-21T11:30:00+05:45</updated><id>https://milanaryal.com.np/deploying-jekyll-sites-to-github-pages-using-github-actions</id><content type="html" xml:base="https://milanaryal.com.np/deploying-jekyll-sites-to-github-pages-using-github-actions/">&lt;p&gt;The GitHub Pages (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-pages&lt;/code&gt; gem only supports specific versions of Jekyll and Jekyll plugins. Latest version of Jekyll &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v4.x.x&lt;/code&gt; build time for your site is incredibly faster than older versions. So, to overcome the &lt;a href=&quot;https://pages.github.com/versions/&quot; rel=&quot;nofollow&quot;&gt;GitHub Pages dependencies and versions&lt;/a&gt; we are going to use GitHub Actions to deploy your site onto GitHub Pages with your specific version of Jekyll and Jekyll plugins.&lt;/p&gt;
+
+&lt;p&gt;Also, using GitHub Actions we can use any Jekyll plugins irrespective of them being on the supported versions list, even &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*.rb&lt;/code&gt; files placed in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_plugins&lt;/code&gt; directory of your site.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: This is the updated post directly from &lt;em&gt;Jekyll documentations&lt;/em&gt; site with much simpler procedures.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;workspace-setup&quot;&gt;Workspace setup&lt;/h3&gt;
+
+&lt;p&gt;The first and foremost requirement is a Jekyll project hosted at GitHub. Choose an existing Jekyll project or follow the &lt;a href=&quot;https://jekyllrb.com/docs/&quot; rel=&quot;nofollow&quot;&gt;quick start&lt;/a&gt; and push the repository to GitHub if it is not hosted there already.&lt;/p&gt;
+
+&lt;p&gt;We’re only going to cover builds from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; branch in this page. Therefore, ensure that you are working on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; branch. If necessary, you may create it based on your default branch. When the Action builds your site, the contents of the &lt;em&gt;destination&lt;/em&gt; directory will be automatically pushed to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch with a commit, ready to be used for serving.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: The Action we’re using here will create (or reset an existing) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch on every successful deploy. So, if you have an existing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch that is used to deploy your production build, ensure to make a backup of the contents into a different branch so that you can rollback easily if necessary.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Following is the contents of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; for our project:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# frozen_string_literal: true&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'https://rubygems.org'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'jekyll'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'~&amp;gt; 4.2'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:jekyll_plugins&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'jekyll-seo-tag'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'~&amp;gt; 2.7'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;gt;= 2.7.1'&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'jekyll-sitemap'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'~&amp;gt; 1.4'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;setting-up-the-action&quot;&gt;Setting up the Action&lt;/h3&gt;
+
+&lt;p&gt;GitHub Actions are registered for a repository by using a YAML file inside the directory path &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.github/workflows&lt;/code&gt; (note the dot at the start). Here we shall employ Jekyll Actions from the Marketplace for its simplicity.&lt;/p&gt;
+
+&lt;p&gt;Create a &lt;strong&gt;workflow file&lt;/strong&gt;, say &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deploy.yml&lt;/code&gt;, using either the GitHub interface or by pushing a YAML file to the workflow directory path manually. The base contents are:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;deploy&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;main&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;paths-ignore&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;README.md&quot;&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;LICENSE&quot;&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;github-pages&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Clone repository&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v2&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Caching for Bundler&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/cache@v2&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;vendor/bundle&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;restore-keys&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+            &lt;span class=&quot;s&quot;&gt;${{ runner.os }}-gems-&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Build and deploy&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;helaili/jekyll-action@v2&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;${{ secrets.JEKYLL_PAT }}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above workflow can be explained as the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We trigger the build using &lt;strong&gt;on.push&lt;/strong&gt; condition for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; branch only — this prevents the Action from overwriting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch on any feature branch pushes.&lt;/li&gt;
+  &lt;li&gt;The &lt;strong&gt;name&lt;/strong&gt; of the job matches our YAML filename: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github-pages&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;The &lt;strong&gt;checkout&lt;/strong&gt; action takes care of cloning your repository.&lt;/li&gt;
+  &lt;li&gt;We specify our selected &lt;strong&gt;action&lt;/strong&gt; and &lt;strong&gt;version number&lt;/strong&gt; using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helaili/jekyll-action@2&lt;/code&gt;. This handles the build and deploy.&lt;/li&gt;
+  &lt;li&gt;We set a reference to a secret &lt;strong&gt;token&lt;/strong&gt; for the action to use. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JEKYLL_PAT&lt;/code&gt; is a &lt;em&gt;Personal Access Token&lt;/em&gt; and is detailed in the next section.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;providing-permissions&quot;&gt;Providing permissions&lt;/h3&gt;
+
+&lt;p&gt;The action needs permissions to push to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch. So you need to create a GitHub &lt;strong&gt;authentication token&lt;/strong&gt; on your GitHub profile, then set it as an environment variable in your build using &lt;em&gt;Secrets&lt;/em&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;On your GitHub profile, under &lt;strong&gt;Developer Settings&lt;/strong&gt;, go to the &lt;a href=&quot;https://github.com/settings/tokens&quot; rel=&quot;nofollow&quot;&gt;Personal Access Tokens&lt;/a&gt; section.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; a token. Give it a name like “GitHub Actions” and ensure it has permissions to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public_repos&lt;/code&gt; (or the entire &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;repo&lt;/code&gt; scope for private repository) — necessary for the action to commit to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Copy&lt;/strong&gt; the token value.&lt;/li&gt;
+  &lt;li&gt;Go to your repository’s &lt;strong&gt;Settings&lt;/strong&gt; and then the &lt;strong&gt;Secrets&lt;/strong&gt; tab.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; a token named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;JEKYLL_PAT&lt;/code&gt; (&lt;em&gt;important&lt;/em&gt;). Give it a value using the value copied above.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;build-and-deploy&quot;&gt;Build and deploy&lt;/h3&gt;
+
+&lt;p&gt;On pushing any local changes onto &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;, the action will be triggered and the build will &lt;strong&gt;start&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;To watch the progress and see any build errors, check on the build &lt;strong&gt;status&lt;/strong&gt; using one of the following approaches:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;View by commit&lt;/strong&gt;: Go to the repository level view in GitHub. Under the most recent commit (near the top) you’ll see a &lt;strong&gt;status symbol&lt;/strong&gt; next to the commit message as a tick or &lt;em&gt;X&lt;/em&gt;. Hover over it and click the &lt;strong&gt;details&lt;/strong&gt; link.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Actions tab&lt;/strong&gt;: Go to the repository’s Actions tab. Click on the workflow tab.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If all goes well, all steps will be green and the built assets will now exist on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch.&lt;/p&gt;
+
+&lt;p&gt;On a successful build, GitHub Pages will &lt;strong&gt;publish&lt;/strong&gt; the site stored on the repository &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branches. Note that you do not need to setup a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch or enable GitHub Pages, as the action will take care of this for you. (For private repositories, you’ll have to upgrade to a paid plan).&lt;/p&gt;
+
+&lt;p&gt;To see the &lt;strong&gt;live site&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Go to the &lt;strong&gt;environment&lt;/strong&gt; tab on your repository.&lt;/li&gt;
+  &lt;li&gt;Click &lt;strong&gt;View Deployment&lt;/strong&gt; to see the deployed site URL.&lt;/li&gt;
+  &lt;li&gt;View your site at the &lt;strong&gt;URL&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;When you need to make further &lt;strong&gt;changes&lt;/strong&gt; to the site, commit to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; and push. The workflow will build and deploy your site again.&lt;/p&gt;
+
+&lt;p&gt;Be sure &lt;strong&gt;not to edit&lt;/strong&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch directly, as any changes will be lost on the next successful deploy from the Action.&lt;/p&gt;
+
+&lt;h3 id=&quot;further-resources&quot;&gt;Further resources&lt;/h3&gt;
+
+&lt;p&gt;Jekyll official documentations:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/continuous-integration/github-actions/&quot; rel=&quot;nofollow&quot;&gt;Build and host the Jekyll site with GitHub Pages using GitHub Actions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Popular ‘Jekyll build &amp;amp; deploy to GitHub Pages’ Actions on the GitHub Marketplace:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/marketplace/actions/jekyll-actions&quot; rel=&quot;nofollow&quot;&gt;jekyll-actions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/marketplace/actions/jekyll-action-ts&quot; rel=&quot;nofollow&quot;&gt;jekyll-action-ts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/marketplace/actions/jekyll-deploy-gh-pages&quot; rel=&quot;nofollow&quot;&gt;jekyll-deploy-gh-pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Popular ‘deploy to GitHub Pages’ Actions on the GitHub Marketplace:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/marketplace/actions/github-pages-action&quot; rel=&quot;nofollow&quot;&gt;actions-gh-pages&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/marketplace/actions/deploy-to-github-pages&quot; rel=&quot;nofollow&quot;&gt;deploy-to-github-pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Using GitHub Actions, learn how to publish your Jekyll websites onto GitHub Pages with your custom dependencies and versions.</summary></entry><entry><title type="html">Migrating from Travis CI to GitHub Actions [for GitHub Pages and Jekyll]</title><link href="https://milanaryal.com.np/migrating-from-travis-ci-to-github-actions/" rel="alternate" type="text/html" title="Migrating from Travis CI to GitHub Actions [for GitHub Pages and Jekyll]" /><published>2021-03-17T14:00:00+05:45</published><updated>2021-03-17T14:00:00+05:45</updated><id>https://milanaryal.com.np/migrating-from-travis-ci-to-github-actions</id><content type="html" xml:base="https://milanaryal.com.np/migrating-from-travis-ci-to-github-actions/">&lt;p&gt;I use continuous integration (CI) to test build status of my Jekyll blog in GitHub Pages environment.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For those who aren’t familiar with Continuous Integration (CI) or Continuous Delivery (CD), it’s a automating software workflows to build or test the software based on certain triggers in your GitHub repository.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Travis CI has served me very well but with a notice from &lt;em&gt;travis-ci.org&lt;/em&gt; to &lt;a href=&quot;https://ropensci.org/blog/2020/11/19/moving-away-travis/&quot; rel=&quot;nofollow&quot;&gt;shutting down the website soon&lt;/a&gt;, I planned to migrate to GitHub Actions (the native CI/CD system from GitHub).&lt;/p&gt;
+
+&lt;h4 id=&quot;step-1-remove-travis-ci-from-the-project-folder&quot;&gt;Step 1: Remove Travis CI from the project folder&lt;/h4&gt;
+
+&lt;p&gt;I first removed the following &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.travis.yml&lt;/code&gt; configuration file code snippet from the root directory of my project folder.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# travis-ci.org&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ruby&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2.7.1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Ruby version&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Assume bundler is being used, therefore&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# the `install` step will run `bundle install` by default.&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec github-pages versions&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# List dependency versions&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec github-pages health-check&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Checking DNS (Should have CNAME file)&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll doctor&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Checking Jekyll configuration&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll build --config _config.yml,_config_test.yml --profile&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Building site&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec htmlproofer ./_site --allow-hash-href --assume-extension --http-status-ignore &quot;403,429&quot; --only-4xx&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Checking HTML files&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll clean&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Cleaning up&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;NOKOGIRI_USE_SYSTEM_LIBRARIES=true&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;addons&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;packages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;libcurl4-openssl-dev&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundler&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;depth&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;notifications&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Removed Travis CI “Build Status” badge in a README file.&lt;/li&gt;
+  &lt;li&gt;Logged into the Travis CI website and disabled the GitHub repository from using Travis.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;step-2-create-github-actions-workflow-in-the-project-folder&quot;&gt;Step 2: Create GitHub Actions workflow in the project folder&lt;/h4&gt;
+
+&lt;p&gt;Now, migrating to GitHub Actions here’s a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.workflow.yml&lt;/code&gt; file code snippet I created in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.github/workflows&lt;/code&gt; directory of my project folder.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;My workflow&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;main&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;paths-ignore&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;LICENSE&quot;&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;README.md&quot;&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;RUBY_VERSION&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2.7.1&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ubuntu-latest&lt;/span&gt;
+
+    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Clone repository&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;actions/checkout@v2&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Set up Ruby&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ruby/setup-ruby@v1&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;ruby-version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;${{ env.RUBY_VERSION }}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Not needed with a .ruby-version file&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;bundler-cache&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# runs 'bundle install' and caches installed gems automatically&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Version info&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;ruby --version&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;gem --version&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;bundle --version&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;List dependency versions&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec github-pages versions&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Checking DNS&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Should have CNAME file&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec github-pages health-check&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Checking Jekyll configuration&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll doctor&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Building site&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll build --config _config.yml,_config_test.yml --profile&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Checking HTML files&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec htmlproofer ./_site --allow-hash-href --assume-extension --http-status-ignore &quot;403,429&quot; --only-4xx&lt;/span&gt;
+
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Cleaning up&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll clean&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added GitHub Actions “Build Status” badge in a README file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;step-3-push-commit&quot;&gt;Step 3: Push commit&lt;/h4&gt;
+
+&lt;p&gt;Finally, I push commit to GitHub and I can see the build status results in ‘actions’ tab of my project folder in GitHub website.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;For any references following code snippet is a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; of my Jekyll blog to build site in the GitHub Pages environment:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# frozen_string_literal: true&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://rubygems.org&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;github-pages&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:group&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:jekyll_plugins&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;html-proofer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:group&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;further-resources&quot;&gt;Further resources&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.github.com/en/actions/learn-github-actions/migrating-from-travis-ci-to-github-actions&quot; rel=&quot;nofollow&quot;&gt;Migrating from Travis CI to GitHub Actions&lt;/a&gt;, &lt;em&gt;GitHub Docs&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">I use continuous integration (CI) to test build status of my Jekyll blog in GitHub Pages environment.</summary></entry><entry><title type="html">Useful websites related to stock market of Nepal</title><link href="https://milanaryal.com.np/useful-websites-related-to-stock-market-of-nepal/" rel="alternate" type="text/html" title="Useful websites related to stock market of Nepal" /><published>2021-03-02T15:00:00+05:45</published><updated>2021-03-17T12:15:00+05:45</updated><id>https://milanaryal.com.np/useful-websites-related-to-stock-market-of-nepal</id><content type="html" xml:base="https://milanaryal.com.np/useful-websites-related-to-stock-market-of-nepal/">&lt;h3 id=&quot;nepal-stock-exchange-official-websites&quot;&gt;Nepal stock exchange official websites&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.nepalstock.com/education/&quot;&gt;NEPSE Education Center&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.nepalstock.com.np/education/&quot;&gt;NEPSE Education Center {.NP Domain}&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.nepalstock.com/&quot;&gt;Nepal Stock Exchange (NEPSE)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.nepalstock.com.np/&quot;&gt;Nepal Stock Exchange (NEPSE) {.NP Domain}&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://newweb.nepalstock.com.np/&quot;&gt;Nepal Stock Exchange (NEPSE) {Beta Version}&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;nepal-stock-exchange-related-regulatory-authority-websites&quot;&gt;Nepal stock exchange related regulatory authority websites&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.sebon.gov.np/&quot;&gt;Securities Board of Nepal (SEBON)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cdsc.com.np/&quot;&gt;CDS &amp;amp; Clearing Ltd.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://meroshare.cdsc.com.np/&quot;&gt;Mero Share&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://iporesult.cdsc.com.np/&quot;&gt;IPO Allotment Result&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.connectips.com/&quot;&gt;connectIPS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;important-websites-of-nepal&quot;&gt;Important websites of Nepal&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mof.gov.np/en/&quot;&gt;Ministry of Finance&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nrb.org.np/&quot;&gt;Nepal Rastra Bank (NRB)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nib.gov.np/&quot;&gt;Nepal Insurance Board (Beema Samiti)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ocr.gov.np/&quot;&gt;Company Register Office&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ird.gov.np/&quot;&gt;Inland Revenue Department&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Credit Information Bureau of Nepal (Karja Suchana Kendra Limited)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dcgc.org.np/&quot;&gt;Deposit and Credit Guarantee Corporation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://deoc.gov.np/&quot;&gt;Department of Cooperative&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ncbl.coop/&quot;&gt;National Cooperative Bank&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gpo.gov.np/&quot;&gt;General Post Office&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cbs.gov.np/&quot;&gt;Central Bureau of Statistics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.lawcommission.gov.np/&quot;&gt;Nepal Law Commission&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nlk.org.np/&quot;&gt;Citizen Investment Trust (Nagarik Lagani Kosh)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://epfnepal.com.np/&quot;&gt;Employee Provident Fund&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pension.gov.np/&quot;&gt;Pension Management Office&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nepalbankers.com.np/&quot;&gt;Nepal Bankers’ Association&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dban.com.np/&quot;&gt;Development Bankers’ Association&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;nepse-online-technical-analysis-chart-for-free&quot;&gt;NEPSE online technical analysis chart [for free]&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nepsealpha.com/trading/chart&quot; rel=&quot;nofollow&quot;&gt;NepseAlpha&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nepsedata.com/chart/&quot; rel=&quot;nofollow&quot;&gt;NepseData&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://chart.nepsechart.com/&quot; rel=&quot;nofollow&quot;&gt;NepseChart&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;popular-online-business-news-portals-of-nepal&quot;&gt;Popular online business news portals of Nepal&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ajakoartha.com/&quot; rel=&quot;nofollow&quot;&gt;Ajako Artha&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://arthatantra.com/&quot; rel=&quot;nofollow&quot;&gt;Arthatantra&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.arthabazar.com/&quot; rel=&quot;nofollow&quot;&gt;Artha Bazar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.arthadainik.com/&quot; rel=&quot;nofollow&quot;&gt;Artha Dainik&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://arthatoday.com/&quot; rel=&quot;nofollow&quot;&gt;Artha Today&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arthasansar.com/&quot; rel=&quot;nofollow&quot;&gt;Artha Sansar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arthikpati.com/&quot; rel=&quot;nofollow&quot;&gt;Arthik Pati&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arthakoartha.com/&quot; rel=&quot;nofollow&quot;&gt;Artha Ko Artha&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://aarthiknews.com/&quot; rel=&quot;nofollow&quot;&gt;Aarthik News&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arthikpage.com/&quot; rel=&quot;nofollow&quot;&gt;Arthik Page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.arthasarokar.com/&quot; rel=&quot;nofollow&quot;&gt;Artha Sarokar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bankingkhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Banking Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bikashnews.com/&quot; rel=&quot;nofollow&quot;&gt;Bikash News&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bizkhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Biz Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bizmandu.com/&quot; rel=&quot;nofollow&quot;&gt;Bizmandu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bizpati.com/&quot; rel=&quot;nofollow&quot;&gt;Bizpati&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bizshala.com/&quot; rel=&quot;nofollow&quot;&gt;Bizshala&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://businesspati.com/&quot; rel=&quot;nofollow&quot;&gt;Business Pati&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.capitalnepal.com/&quot; rel=&quot;nofollow&quot;&gt;Capital Nepal&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://clickmandu.com/&quot; rel=&quot;nofollow&quot;&gt;Clickmandu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://corporatekhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Corporate Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://corporatenepal.com/&quot; rel=&quot;nofollow&quot;&gt;Corporate Nepal&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dekhapadhi.com/&quot; rel=&quot;nofollow&quot;&gt;Dekha Padhi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.eaarthik.com/&quot; rel=&quot;nofollow&quot;&gt;eAarthik&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.financialnotices.com/&quot; rel=&quot;nofollow&quot;&gt;Financial Notices&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gyanmandu.com/&quot; rel=&quot;nofollow&quot;&gt;Gyanmandu&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://insurancekhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Insurance Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.investingnepal.com/&quot; rel=&quot;nofollow&quot;&gt;Investing Nepal&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://laganikhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Lagani Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.merolagani.com/&quot; rel=&quot;nofollow&quot;&gt;Mero Lagani&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nepalipaisa.com/&quot; rel=&quot;nofollow&quot;&gt;Nepali Paisa&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nepsekhabar.com/&quot; rel=&quot;nofollow&quot;&gt;NepseKhabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.newbusinessage.com/&quot; rel=&quot;nofollow&quot;&gt;New Business Age (ENG)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://notebazar.com/&quot; rel=&quot;nofollow&quot;&gt;Note Bazar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sahakarikhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Sahakari Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sharesansar.com/&quot; rel=&quot;nofollow&quot;&gt;Share Sansar (ENG)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sharebazarnepal.com.np/&quot; rel=&quot;nofollow&quot;&gt;Share Bazar Nepal&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.urjakhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Urja Khabar&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;popular-online-news-portals-of-nepal&quot;&gt;Popular online news portals of Nepal&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://baahrakhari.com/&quot; rel=&quot;nofollow&quot;&gt;Baahrakhari&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bigulnews.com/&quot; rel=&quot;nofollow&quot;&gt;Bigul News&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.dainiki.com/&quot; rel=&quot;nofollow&quot;&gt;Dainiki&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.deshkonews.com/&quot; rel=&quot;nofollow&quot;&gt;Desh Ko News&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://deshsanchar.com/&quot; rel=&quot;nofollow&quot;&gt;Desh Sanchar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ekantipur.com/&quot; rel=&quot;nofollow&quot;&gt;eKantipur&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gaunsahar.com/&quot; rel=&quot;nofollow&quot;&gt;Gaun Sahar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.imagekhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Image Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.janaboli.com/&quot; rel=&quot;nofollow&quot;&gt;Janaboli&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.janatasamachar.com/&quot; rel=&quot;nofollow&quot;&gt;Janata Samachar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hamrakura.com/&quot; rel=&quot;nofollow&quot;&gt;Hamra Kura&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hamrokhabarpati.com/&quot; rel=&quot;nofollow&quot;&gt;Hamro Khabar Pati&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.himalkhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Himal Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.himalpost.com/&quot; rel=&quot;nofollow&quot;&gt;Himal Post&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.kathmandutoday.com/&quot; rel=&quot;nofollow&quot;&gt;Kathmandu Today&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.kathmandupati.com/&quot; rel=&quot;nofollow&quot;&gt;Kathmandu Pati&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kathmandupress.com/&quot; rel=&quot;nofollow&quot;&gt;Kathmandu Press&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.khabarhub.com/&quot; rel=&quot;nofollow&quot;&gt;Khabar Hub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://lokaantar.com/&quot; rel=&quot;nofollow&quot;&gt;Lokaantar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nagarikkhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Nagarik Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nayapage.com/&quot; rel=&quot;nofollow&quot;&gt;Naya Page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nepalkhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Nepal Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nepallive.com/&quot; rel=&quot;nofollow&quot;&gt;Nepal Live&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nepalpress.com/&quot; rel=&quot;nofollow&quot;&gt;Nepal Press&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nepalsamaya.com/&quot; rel=&quot;nofollow&quot;&gt;Nepal Samaya&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nepalitimes.com/&quot; rel=&quot;nofollow&quot;&gt;Nepali Times&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.newskarobar.com/&quot; rel=&quot;nofollow&quot;&gt;News Karobar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.news24nepal.tv/&quot; rel=&quot;nofollow&quot;&gt;News24 Nepal&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.newsofnepal.com/&quot; rel=&quot;nofollow&quot;&gt;News Of Nepal&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://onlinekendra.com/&quot; rel=&quot;nofollow&quot;&gt;Online Kendra&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.onlinekhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Online Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pahilopost.com/&quot; rel=&quot;nofollow&quot;&gt;PahiloPost&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.pariwartankhabar.com/&quot;&gt;Pariwartan Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ratopati.com/&quot; rel=&quot;nofollow&quot;&gt;Rato Pati&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.reportersnepal.com/&quot; rel=&quot;nofollow&quot;&gt;Reporters Nepal&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sancharkendra.com/&quot; rel=&quot;nofollow&quot;&gt;Sanchar Kendra&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.setopati.com/&quot; rel=&quot;nofollow&quot;&gt;Setopati&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://shikharnews.com/&quot; rel=&quot;nofollow&quot;&gt;Shikhar News&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.singhadarbar.com/&quot; rel=&quot;nofollow&quot;&gt;Singha Darbar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.souryaonline.com/&quot; rel=&quot;nofollow&quot;&gt;Sourya Online&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://swasthyakhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Swasthya Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.tesroaankha.com/&quot; rel=&quot;nofollow&quot;&gt;Tesro Aankha&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://thahakhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Thaha Khabar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.topnepalnews.com/&quot; rel=&quot;nofollow&quot;&gt;Top Nepal News&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ujyaaloonline.com/&quot; rel=&quot;nofollow&quot;&gt;Ujyaalo Online&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;popular-daily-newspapers-of-nepal&quot;&gt;Popular daily newspapers of Nepal&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.abhiyandaily.com/&quot; rel=&quot;nofollow&quot;&gt;Aarthik Abhiyan National Daily&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.aarthikdainik.com/&quot; rel=&quot;nofollow&quot;&gt;Aarthik National Daily&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://annapurnapost.com/&quot; rel=&quot;nofollow&quot;&gt;Annapurna Post&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bbc.com/nepali&quot; rel=&quot;nofollow&quot;&gt;BBC Nepali News&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gorkhapatraonline.com/&quot; rel=&quot;nofollow&quot;&gt;Gorkhapatra Online&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.kantipurdaily.com/&quot; rel=&quot;nofollow&quot;&gt;Kantipur Daily&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.karobardaily.com/&quot; rel=&quot;nofollow&quot;&gt;Karobar National Economic Daily&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nayapatrikadaily.com/&quot; rel=&quot;nofollow&quot;&gt;Naya Patrika&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://rajdhanidaily.com/&quot; rel=&quot;nofollow&quot;&gt;Rajdhani National Daily&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://myrepublica.nagariknetwork.com/&quot; rel=&quot;nofollow&quot;&gt;Republica (ENG)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://thehimalayantimes.com/&quot; rel=&quot;nofollow&quot;&gt;The Himalayan Times (ENG)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kathmandupost.com/&quot; rel=&quot;nofollow&quot;&gt;The Kathmandu Post (ENG)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Nepal stock market related list of useful websites that you might like to read for daily up-to-date information.</summary></entry><entry><title type="html">Famous quotes by Jesse Livermore, the greatest stock trader of all time</title><link href="https://milanaryal.com.np/famous-quotes-by-jesse-livermore/" rel="alternate" type="text/html" title="Famous quotes by Jesse Livermore, the greatest stock trader of all time" /><published>2020-07-21T06:00:00+05:45</published><updated>2020-07-21T06:00:00+05:45</updated><id>https://milanaryal.com.np/famous-quotes-by-jesse-livermore</id><content type="html" xml:base="https://milanaryal.com.np/famous-quotes-by-jesse-livermore/">&lt;p&gt;Jesse Livermore (Jesse Lauriston Livermore) was an American investor and security analyst. Livermore was famed for making and losing several multimillion-dollar fortunes and short selling during the stock market crashes in 1907 and 1929. Livermore led a life of brilliance and excess, surrounded by mistresses, scandals, money, and bankruptcy. He was a legendary trader who played big and made millions during the crash of 1929.&lt;/p&gt;
+
+&lt;p&gt;But by 1934, Livermore would have depleted the $100 million fortune he earned on the stock market just five years earlier. He declared a third bankruptcy, went through his second divorce, and committed suicide in 1940 — the newspapers then detailing his scandals rather than the achievements of his earlier days.&lt;/p&gt;
+
+&lt;p&gt;Some of his famous quotes:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;The stock market is never obvious. It is designed to fool most of the people, most of the time.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Play the market only when all factors are in your favor. No person can play the market all the time and win. There are times when you should be completely out of the market, for emotional as well as economic reasons.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do not use the words “Bullish” or “Bearish.” These words fix a firm market-direction in the mind for an extended period of time. Instead, use “Upward Trend” and “Downward Trend” when asked the direction you think the market is headed. Simply say: “The line of least resistance is either upward or downward at this time.” Remember, don’t fight the tape!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The game of speculation is the most uniformly fascinating game in the world. But it is not a game for the stupid, the mentally lazy, the person of inferior emotional balance, or the get-rich-quick adventurer. They will die poor.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The only thing to do when a person is wrong is to be right, by ceasing to be wrong. Cut your losses quickly, without hesitation. Don’t waste time. When a stock moves below a mental-stop, sell it immediately.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Emotional control is the most essential factor in playing the market. Never lose control of your emotions when the market moves against you. Don’t get too confident over your wins or too despondent over your losses.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;All through time, people have basically acted and reacted the same way in the market as a result of: greed, fear, ignorance, and hope. That is why the numerical formations and patterns recur on a constant basis.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Watch the market leaders, the stocks that have led the charge upward in a bull market. That is where the action is and where the money is to be made. As the leaders go, so goes the entire market. If you cannot make money in the leaders, you are not going to make money in the stock market. Watching the leaders keeps your universe of stocks limited, focused, and more easily controlled.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Failure to take advantage of a serendipitous act of good luck in the stock market is often a mistake.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;There is nothing new on Wall Street or in stock speculation. What has happened in the past will happen again, and again, and again. This is because human nature does not change, and it is human emotion, solidly build into human nature, that always gets in the way of human intelligence. Of this I am sure.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Jesse Livermore (Jesse Lauriston Livermore) was an American investor and security analyst. Livermore was famed for making and losing several multimillion-dollar fortunes and short selling during the stock market crashes in 1907 and 1929. Livermore led a life of brilliance and excess, surrounded by mistresses, scandals, money, and bankruptcy. He was a legendary trader who played big and made millions during the crash of 1929.</summary></entry><entry><title type="html">The best free and public DNS resolvers</title><link href="https://milanaryal.com.np/free-and-public-dns-resolvers/" rel="alternate" type="text/html" title="The best free and public DNS resolvers" /><published>2020-07-05T03:30:00+05:45</published><updated>2020-07-05T03:30:00+05:45</updated><id>https://milanaryal.com.np/free-and-public-dns-resolvers</id><content type="html" xml:base="https://milanaryal.com.np/free-and-public-dns-resolvers/">&lt;blockquote&gt;
+  &lt;p&gt;DNS resolvers (also called Domain Name resolvers) are the servers on the Internet that converts domain names into IP addresses.&lt;/p&gt;
+
+  &lt;p&gt;— &lt;a href=&quot;https://icannwiki.org/Domain_Name_Resolvers&quot; rel=&quot;nofollow&quot;&gt;ICANNWiki&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here’s a list of the best publicly available fast and secure DNS resolvers service provider for free of cost.&lt;/p&gt;
+
+&lt;h3 id=&quot;cloudflare-dns-resolver-aka-1111&quot;&gt;&lt;a href=&quot;https://developers.cloudflare.com/1.1.1.1/&quot; rel=&quot;nofollow&quot;&gt;Cloudflare DNS resolver&lt;/a&gt; [aka 1.1.1.1]&lt;/h3&gt;
+
+&lt;p&gt;1.1.1.1 is a free Domain Name System (DNS) service. The public DNS service and servers are maintained and owned by Cloudflare in partnership with APNIC. The service functions as a recursive name server providing domain name resolution for any host on the Internet. The service was announced on April 1, 2018, and is claimed by Cloudflare to be “the Internet’s fastest, privacy-first consumer DNS service”.&lt;/p&gt;
+
+&lt;p&gt;According to DNSPerf, 1.1.1.1 is the world’s fastest recursive DNS resolver, beating other popular resolvers such as Google’s Public DNS resolver.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Cloudflare&lt;/th&gt;
+      &lt;th&gt;Primary DNS&lt;/th&gt;
+      &lt;th&gt;Secondary DNS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IPV4&lt;/td&gt;
+      &lt;td&gt;1.1.1.1&lt;/td&gt;
+      &lt;td&gt;1.0.0.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IPV6&lt;/td&gt;
+      &lt;td&gt;2606:4700:4700::1111&lt;/td&gt;
+      &lt;td&gt;2606:4700:4700::1001&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;1.1.1.1 also offers an optional Family Protection mode for blocking access to websites with adult content as well as enforcing safe search in search engines.&lt;/p&gt;
+
+&lt;h3 id=&quot;google-public-dns&quot;&gt;&lt;a href=&quot;https://developers.google.com/speed/public-dns/&quot; rel=&quot;nofollow&quot;&gt;Google Public DNS&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Google Public DNS is a Domain Name System (DNS) service offered to Internet users worldwide by Google. It functions as a recursive name server. Google Public DNS was announced on 3 December 2009, in an effort described as “making the web faster and more secure”.&lt;/p&gt;
+
+&lt;p&gt;As of 2018, it is the largest public DNS service in the world, handling over a trillion queries per day.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Google&lt;/th&gt;
+      &lt;th&gt;Primary DNS&lt;/th&gt;
+      &lt;th&gt;Secondary DNS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IPV4&lt;/td&gt;
+      &lt;td&gt;8.8.8.8&lt;/td&gt;
+      &lt;td&gt;8.8.4.4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IPV6&lt;/td&gt;
+      &lt;td&gt;2001:4860:4860::8888&lt;/td&gt;
+      &lt;td&gt;2001:4860:4860::8844&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;opendns&quot;&gt;&lt;a href=&quot;https://use.opendns.com/&quot; rel=&quot;nofollow&quot;&gt;OpenDNS&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;OpenDNS is a company and service that extends the Domain Name System (DNS) by adding features such as phishing protection and optional content filtering in addition to DNS lookup in its DNS servers.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;OpenDNS&lt;/th&gt;
+      &lt;th&gt;Primary DNS&lt;/th&gt;
+      &lt;th&gt;Secondary DNS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IPV4&lt;/td&gt;
+      &lt;td&gt;208.67.222.222&lt;/td&gt;
+      &lt;td&gt;208.67.220.220&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IPV6&lt;/td&gt;
+      &lt;td&gt;2620:119:35::35&lt;/td&gt;
+      &lt;td&gt;2620:119:53::53&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;OpenDNS also offers an optional Family Protection mode for blocking access to websites with adult content as well as enforcing safe search in search engines.&lt;/p&gt;
+
+&lt;h3 id=&quot;adguard-dns-resolver&quot;&gt;&lt;a href=&quot;https://adguard.com/en/adguard-dns/overview.html&quot; rel=&quot;nofollow&quot;&gt;AdGuard DNS resolver&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;A free service from AdGuard that provides an easy way to block ads, online trackers, and analytical systems on a DNS level. The product offers DNSCrypt, DNS over HTTPS, and DNS over TLS variants for encrypting all DNS requests and avoiding interception and/or alteration through DNS spoofing or other methods.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;AdGuard&lt;/th&gt;
+      &lt;th&gt;Primary DNS&lt;/th&gt;
+      &lt;th&gt;Secondary DNS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IPV4&lt;/td&gt;
+      &lt;td&gt;176.103.130.130&lt;/td&gt;
+      &lt;td&gt;176.103.130.131&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IPV6&lt;/td&gt;
+      &lt;td&gt;2a00:5a60::ad1:0ff&lt;/td&gt;
+      &lt;td&gt;2a00:5a60::ad2:0ff&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;AdGuard DNS also offers an optional Family Protection mode for blocking access to websites with adult content as well as enforcing safe search in search engines.&lt;/p&gt;
+
+&lt;h3 id=&quot;additional-dns-resolvers&quot;&gt;Additional DNS resolvers&lt;/h3&gt;
+
+&lt;p&gt;Further several public DNS resolvers are as listed below:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://alternate-dns.com/index.php&quot; rel=&quot;nofollow&quot;&gt;Alternate DNS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cleanbrowsing.org/&quot; rel=&quot;nofollow&quot;&gt;CleanBrowsing&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.comodo.com/secure-dns/&quot; rel=&quot;nofollow&quot;&gt;Comodo Secure DNS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dns.watch/&quot; rel=&quot;nofollow&quot;&gt;DNS.Watch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.quad9.net/&quot; rel=&quot;nofollow&quot;&gt;Quad9 DNS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.verisign.com/en_US/security-services/public-dns/index.xhtml&quot; rel=&quot;nofollow&quot;&gt;Verisign Public DNS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">A list of publicly available fast and secure DNS resolvers service provider for free of cost.</summary></entry><entry><title type="html">Modern static sites deployment service provider [for free]</title><link href="https://milanaryal.com.np/static-and-jamstack-continuous-deployment-with-git/" rel="alternate" type="text/html" title="Modern static sites deployment service provider [for free]" /><published>2020-06-29T10:00:00+05:45</published><updated>2020-06-29T10:00:00+05:45</updated><id>https://milanaryal.com.np/static-and-jamstack-continuous-deployment-with-git</id><content type="html" xml:base="https://milanaryal.com.np/static-and-jamstack-continuous-deployment-with-git/">&lt;p&gt;Here’s a list of best websites which offer free continuous deployment service with Git for modern static and Jamstack websites.&lt;/p&gt;
+
+&lt;h3 id=&quot;netlify&quot;&gt;&lt;a href=&quot;https://www.netlify.com/about/&quot; rel=&quot;nofollow&quot;&gt;Netlify&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;All sites on Netlify are prebuilt for performance and deployed directly to our global edge network — without requiring you to manage, scale, or patch any web servers. This enables a revolutionary new architecture called the Jamstack, designed to make the web faster — and to support the new tools and workflows used in modern web development.&lt;/p&gt;
+
+&lt;h3 id=&quot;vercel&quot;&gt;&lt;a href=&quot;https://vercel.com/about&quot; rel=&quot;nofollow&quot;&gt;Vercel&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Vercel is the optimal workflow for frontend teams. It offers all-in-one services: static and Jamstack deployment, serverless functions, and global CDN.&lt;/p&gt;
+
+&lt;h3 id=&quot;gitlab-pages&quot;&gt;&lt;a href=&quot;https://docs.gitlab.com/ee/user/project/pages/&quot; rel=&quot;nofollow&quot;&gt;GitLab Pages&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;GitLab Pages are public web pages for users, organizations, and repositories, that are freely hosted on GitLab’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gitlab.io&lt;/code&gt; domain or on a custom domain name of your choice. To publish a website with GitLab Pages, you can use any SSG, like Gatsby, Jekyll, Hugo, Middleman, Harp, Hexo, and Brunch, just to name a few. You can also publish any website written directly in plain HTML, CSS, and JavaScript for free.&lt;/p&gt;
+
+&lt;h3 id=&quot;github-pages&quot;&gt;&lt;a href=&quot;https://pages.github.com/&quot; rel=&quot;nofollow&quot;&gt;GitHub Pages&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;GitHub Pages are public web pages for users, organizations, and repositories, that are freely hosted on GitHub’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github.io&lt;/code&gt; domain or on a custom domain name of your choice. GitHub Pages are powered by Jekyll behind the scenes, so they’re a great way to host your Jekyll-powered website for free.&lt;/p&gt;
+
+&lt;h3 id=&quot;related-posts&quot;&gt;Related posts&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://milanaryal.com.np/deploying-and-hosting-with-gitlab-pages/&quot;&gt;Deploying and hosting static sites with GitLab Pages&lt;/a&gt;: Learn how to deploy and host your modern static websites on GitLab.com with GitLab Pages for free.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://milanaryal.com.np/blogging-with-jekyll-and-github-pages/&quot;&gt;Blogging with Jekyll and GitHub Pages&lt;/a&gt;: Transform your plain text into static websites and blogs.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/&quot; rel=&quot;nofollow&quot;&gt;Deploying a static site or single-page app on Netlify&lt;/a&gt;: Make your site blazing fast with this step-by-step guide on how to deploy a static site or single-page app on Netlify.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">A list of best websites which offer free continuous deployment with Git for modern static and Jamstack websites.</summary></entry><entry><title type="html">Using npm scripts as a build tool</title><link href="https://milanaryal.com.np/using-npm-scripts/" rel="alternate" type="text/html" title="Using npm scripts as a build tool" /><published>2020-06-21T08:00:00+05:45</published><updated>2020-06-21T08:00:00+05:45</updated><id>https://milanaryal.com.np/using-npm-scripts</id><content type="html" xml:base="https://milanaryal.com.np/using-npm-scripts/">&lt;p&gt;I have used build tools like Grunt, and Gulp — which eased my work for compiling assets for my web projects. Over the time using such build tools I spent more time on configuring the build tool rather than in my web projects. So, to overcome this issue I started using npm scripts as a build tool and this time I can focus more time on my work.&lt;/p&gt;
+
+&lt;p&gt;Other task manager needs different plugins to work and over the time some plugins get outdated and not updated by the plugin manager. But, using npm scripts we don’t need to worry because npm scripts use the native package CLI and gets updated over the time.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Related post: &lt;a href=&quot;/managing-dependencies-in-the-package-json-file/&quot;&gt;Managing Node.js dependencies version in the package.json file&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;writing-npm-scripts&quot;&gt;Writing npm scripts&lt;/h3&gt;
+
+&lt;p&gt;Using packages CLI is easy to work with and proper documentation can be found on the respective packages homepage. Popular framework like Bootstrap… are using npm scripts and recommends to use it. Following, I have setup some of the examples as a demo for regular different types of task in the web projects:&lt;/p&gt;
+
+&lt;h4 id=&quot;formatting-prettier-code-style&quot;&gt;Formatting prettier code style&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;prettier &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;format&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;prettier src/{scss/*.scss,js/*.js} --write&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;prettier&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^2.0.5&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run format
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;linting-stylesheet-files&quot;&gt;Linting stylesheet files&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;stylelint stylelint-config-twbs-bootstrap &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;lint-css&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;stylelint &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;**/*.{css,scss}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; --cache --cache-location .cache/.stylelintcache&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;stylelint&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^13.6.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;stylelint-config-twbs-bootstrap&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^2.0.3&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run lint-css
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;compiling-scss&quot;&gt;Compiling SCSS&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;node-sass &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;css-compile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;node-sass --include-path node_modules src/scss/main.scss -o dist/css/&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;node-sass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^4.14.1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run css-compile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;prefixing-css&quot;&gt;Prefixing CSS&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;postcss-cli autoprefixer &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;css-compile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;node-sass --include-path node_modules src/scss/main.scss -o dist/css/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;css-prefix&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;postcss --replace dist/css/main.css --use autoprefixer&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;autoprefixer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^9.8.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;node-sass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^4.14.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;postcss-cli&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.1.1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run css-compile &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm run css-prefix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;grouping-tasks&quot;&gt;Grouping tasks&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;css&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;npm run css-compile &amp;amp;&amp;amp; npm run css-prefix&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;css-compile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;node-sass --include-path node_modules src/scss/main.scss -o dist/css/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;css-prefix&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;postcss --replace dist/css/main.css --use autoprefixer&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;autoprefixer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^9.8.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;node-sass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^4.14.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;postcss-cli&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.1.1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run css
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Or,&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;install install &lt;/span&gt;npm-run-all &lt;span class=&quot;nt&quot;&gt;--save-dev&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;css&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;npm-run-all css-*&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;css-compile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;node-sass --include-path node_modules src/scss/main.scss -o dist/css/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;css-prefix&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;postcss --replace dist/css/main.css --use autoprefixer&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;autoprefixer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^9.8.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;node-sass&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^4.14.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;npm-run-all&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^4.1.5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;postcss-cli&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^7.1.1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm run css
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hope, it helps!&lt;/p&gt;
+
+&lt;h4 id=&quot;additional-resources&quot;&gt;Additional resources&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/twbs/bootstrap-npm-starter&quot; rel=&quot;nofollow&quot;&gt;Bootstrap npm starter template&lt;/a&gt;: Starter template for new Bootstrap-powered npm projects.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/damonbauer/npm-build-boilerplate&quot; rel=&quot;nofollow&quot;&gt;npm build boilerplate&lt;/a&gt;: A collection of packages that build a website using npm scripts.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;external-articles-and-blog-posts-about-using-npm-scripts&quot;&gt;External articles and blog posts about using npm scripts&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://css-tricks.com/why-npm-scripts/&quot; rel=&quot;nofollow&quot;&gt;Why npm Scripts?&lt;/a&gt;: By Damon Bauer on CSS-Tricks&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://deliciousbrains.com/npm-build-script/&quot; rel=&quot;nofollow&quot;&gt;Using Npm Scripts as a Build Tool&lt;/a&gt;: By Gilbert Pellegrom on Delicious Brains&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/&quot; rel=&quot;nofollow&quot;&gt;How to Use npm as a Build Tool&lt;/a&gt;: By Keith Cirkel&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to use npm scrips to compile assets for your web projects with spending less time on setting up the configurations.</summary></entry><entry><title type="html">Deploying and hosting static sites with GitLab Pages</title><link href="https://milanaryal.com.np/deploying-and-hosting-with-gitlab-pages/" rel="alternate" type="text/html" title="Deploying and hosting static sites with GitLab Pages" /><published>2020-06-16T14:00:00+05:45</published><updated>2020-06-18T14:00:00+05:45</updated><id>https://milanaryal.com.np/deploying-and-hosting-with-gitlab-pages</id><content type="html" xml:base="https://milanaryal.com.np/deploying-and-hosting-with-gitlab-pages/">&lt;p&gt;&lt;a href=&quot;https://gitlab.com/&quot; rel=&quot;nofollow&quot;&gt;GitLab&lt;/a&gt; makes it incredibly easy to build, deploy, and host your modern static websites via their free GitLab Pages service, which provides native support for &lt;a href=&quot;https://gitlab.com/pages&quot; rel=&quot;nofollow&quot;&gt;numerous Static Site Generators (SSG)&lt;/a&gt;, such as Gatsby, Next.js, Nuxt, Jekyll, Hugo, Hexo, Middleman and Pelican.&lt;/p&gt;
+
+&lt;h3 id=&quot;assumptions&quot;&gt;Assumptions&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Working familiarity with Git for version control&lt;/li&gt;
+  &lt;li&gt;A &lt;a href=&quot;https://gitlab.com/users/sign_in&quot; rel=&quot;nofollow&quot;&gt;GitLab account&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;A &lt;a href=&quot;https://www.staticgen.com/&quot; rel=&quot;nofollow&quot;&gt;staticgen&lt;/a&gt; website on your local machine that you are ready to publish&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;create-gitlab-ciyml&quot;&gt;Create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitlab-ci.yml&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;In the root directory of your site project folder, create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitlab-ci.yml&lt;/code&gt; file. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitlab-ci.yml&lt;/code&gt; configures the GitLab CI on how to build your page. Simply add the content below.&lt;/p&gt;
+
+&lt;h4 id=&quot;gitlab-ci-for-plain-html-sites&quot;&gt;&lt;a href=&quot;https://gitlab.com/pages/plain-html&quot; rel=&quot;nofollow&quot;&gt;GitLab CI for Plain HTML sites&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;This project’s static Pages are built by &lt;a href=&quot;https://gitlab.com/pages/plain-html&quot; rel=&quot;nofollow&quot;&gt;GitLab CI&lt;/a&gt;, following the steps
+defined in &lt;a href=&quot;https://gitlab.com/pages/plain-html/-/blob/master/.gitlab-ci.yml&quot; rel=&quot;nofollow&quot;&gt;.gitlab-ci.yml&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;alpine:latest&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;pages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;stage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;deploy&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo 'Nothing to do...'&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;artifacts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above example expects to put all your HTML files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h4 id=&quot;gitlab-ci-for-gatsby-sites&quot;&gt;&lt;a href=&quot;https://gitlab.com/pages/gatsby&quot; rel=&quot;nofollow&quot;&gt;GitLab CI for Gatsby sites&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;This project’s static Pages are built by &lt;a href=&quot;https://about.gitlab.com/gitlab-ci/&quot; rel=&quot;nofollow&quot;&gt;GitLab CI&lt;/a&gt;, following the steps
+defined in &lt;a href=&quot;https://gitlab.com/pages/gatsby/-/blob/master/.gitlab-ci.yml&quot; rel=&quot;nofollow&quot;&gt;.gitlab-ci.yml&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;node:latest&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# This folder is cached between builds&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# http://docs.gitlab.com/ce/ci/yaml/README.html#cache&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;node_modules/&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Enables git-lab CI caching. Both .cache and public must be cached, otherwise builds will fail.&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.cache/&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public/&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;pages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;npm install&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./node_modules/.bin/gatsby build --prefix-paths&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;artifacts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above example expects to put all your HTML files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h4 id=&quot;gitlab-ci-for-jekyll-sites&quot;&gt;&lt;a href=&quot;https://gitlab.com/pages/jekyll&quot;&gt;GitLab CI for Jekyll sites&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;This project’s static Pages are built by &lt;a href=&quot;https://about.gitlab.com/gitlab-ci/&quot; rel=&quot;nofollow&quot;&gt;GitLab CI&lt;/a&gt;, following the steps
+defined in &lt;a href=&quot;https://gitlab.com/pages/jekyll/-/blob/master/.gitlab-ci.yml&quot; rel=&quot;nofollow&quot;&gt;.gitlab-ci.yml&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ruby:latest&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;variables&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;production&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;pages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle install&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll build -d public&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;artifacts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above example expects to put all your HTML files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h4 id=&quot;gitlab-ci-for-hugo-sites&quot;&gt;&lt;a href=&quot;https://gitlab.com/pages/hugo&quot; rel=&quot;nofollow&quot;&gt;GitLab CI for Hugo sites&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;This project’s static Pages are built by &lt;a href=&quot;https://about.gitlab.com/gitlab-ci/&quot; rel=&quot;nofollow&quot;&gt;GitLab CI&lt;/a&gt;, following the steps
+defined in &lt;a href=&quot;https://gitlab.com/pages/hugo/-/blob/master/.gitlab-ci.yml&quot; rel=&quot;nofollow&quot;&gt;.gitlab-ci.yml&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;monachus/hugo&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;variables&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;GIT_SUBMODULE_STRATEGY&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;recursive&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;pages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;hugo&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;artifacts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The above example expects to put all your HTML files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h4 id=&quot;gitlab-pages-examples&quot;&gt;GitLab Pages examples&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Example websites hosted by GitLab Pages:&lt;/em&gt; Check out the &lt;a href=&quot;https://gitlab.com/pages&quot; rel=&quot;nofollow&quot;&gt;GitLab Pages official group&lt;/a&gt; for a list of example projects, where you can explore some good options for Static Site Generators for Ruby, NodeJS and Python environments.&lt;/p&gt;
+
+&lt;h3 id=&quot;push-your-site-project-to-gitlab&quot;&gt;Push your site project to GitLab&lt;/h3&gt;
+
+&lt;p&gt;Next, create a new repository on GitLab. It is not necessary to make the repository public. In addition, you might want to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; (and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt; for Jekyll) to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt; file, as there is no need to push compiled assets to GitLab or keep your output website in version control.&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# initialize new git repository
+git init
+
+# add public/ directory to our .gitignore file
+echo &quot;public/&quot; &amp;gt;&amp;gt; .gitignore
+
+# for Jekyll add _site/ directory to our .gitignore file
+echo &quot;_site/&quot; &amp;gt;&amp;gt; .gitignore
+
+# commit and push code to master branch
+git add .
+git commit -m &quot;Initial commit&quot;
+git remote add origin https://gitlab.com/YourUsername/your-static-site.git
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;wait-for-your-page-to-build&quot;&gt;Wait for your page to build&lt;/h3&gt;
+
+&lt;p&gt;That’s it! You can now follow the CI agent building your page at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://gitlab.com/&amp;lt;YourUsername&amp;gt;/&amp;lt;your-static-site&amp;gt;/pipelines&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After the build has passed, your new website is available at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://&amp;lt;YourUsername&amp;gt;.gitlab.io/&amp;lt;your-static-site&amp;gt;/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;next-steps&quot;&gt;Next steps&lt;/h3&gt;
+
+&lt;p&gt;GitLab supports using custom CNAME’s and TLS certificates. For more details on GitLab Pages, see the &lt;a href=&quot;https://about.gitlab.com/blog/2016/04/07/gitlab-pages-setup/#custom-domains&quot; rel=&quot;nofollow&quot;&gt;GitLab Pages setup documentation&lt;/a&gt;.&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to deploy and host your modern static websites on GitLab.com with GitLab Pages for free.</summary></entry></feed>

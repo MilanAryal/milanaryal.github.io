@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+Disallow: /randomi.json
+Disallow: /redirects.json
+Sitemap: https://milanaryal.com.np/sitemap.xml
