@@ -1,4 +1,136 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-04-19T13:20:26+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">Minify Jekyll’s final HTML output files</title><link href="https://milanaryal.com.np/minify-jekyll-final-html-output-files/" rel="alternate" type="text/html" title="Minify Jekyll’s final HTML output files" /><published>2021-04-10T06:00:00+05:45</published><updated>2021-04-10T06:00:00+05:45</updated><id>https://milanaryal.com.np/minify-jekyll-final-html-output-files</id><content type="html" xml:base="https://milanaryal.com.np/minify-jekyll-final-html-output-files/">&lt;p&gt;Site assets minifying (or in another word compressing) helps to decrease site load and speed up browser loading time. Just like with CSS and JavaScript, HTML output can be compressed and minified by removing whitespace, new lines, comments and even removing certain optional closing tags, making for smaller file sizes.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-04-23T23:10:46+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">How to compress images using Imagemin</title><link href="https://milanaryal.com.np/how-to-compress-images-using-imagemin/" rel="alternate" type="text/html" title="How to compress images using Imagemin" /><published>2021-04-23T23:00:00+05:45</published><updated>2021-04-23T23:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-compress-images-using-imagemin</id><content type="html" xml:base="https://milanaryal.com.np/how-to-compress-images-using-imagemin/">&lt;p&gt;In this post, we will learn to compress popular images format like JPEG, PNG,… in &lt;em&gt;Node.js&lt;/em&gt; development environment.&lt;/p&gt;
+
+&lt;p&gt;We are using NPM package called &lt;a href=&quot;https://www.npmjs.com/package/imagemin&quot; rel=&quot;nofollow&quot;&gt;Imagemin&lt;/a&gt; and it’s supportive plugins to compress images for our project.&lt;/p&gt;
+
+&lt;p&gt;Imagemin is available in:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin&quot; rel=&quot;nofollow&quot;&gt;npm module&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-cli&quot; rel=&quot;nofollow&quot;&gt;CLI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-webpack-plugin&quot; rel=&quot;nofollow&quot;&gt;Webpack&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/gulp-imagemin&quot; rel=&quot;nofollow&quot;&gt;Gulp&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.npmjs.com/package/grunt-contrib-imagemin&quot; rel=&quot;nofollow&quot;&gt;Grunt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;imagemin-plugins-to-use&quot;&gt;Imagemin plugins to use&lt;/h3&gt;
+
+&lt;p&gt;Imagemin has two types of plugins lossy and lossless. Lossy plugins offers option to customise image compression levels to meet your needs which significantly reduce image file size (losing image quality). Most of web developers use lossy plugins to have greater file size savings to speedup loading browser time and saving bandwidth.&lt;/p&gt;
+
+&lt;p&gt;Lossless plugins compress images without losing any image data. To keep quality of images some uses lossless plugins, but do not reduces size of image file compare to lossless plugins.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Image Format&lt;/th&gt;
+      &lt;th&gt;Lossy Plugin(s)&lt;/th&gt;
+      &lt;th&gt;Lossless Plugin(s)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;JPEG&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-mozjpeg&quot; rel=&quot;nofollow&quot;&gt;imagemin-mozjpeg&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-jpegtran&quot; rel=&quot;nofollow&quot;&gt;imagemin-jpegtran&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PNG&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-pngquant&quot; rel=&quot;nofollow&quot;&gt;imagemin-pngquant&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-optipng&quot; rel=&quot;nofollow&quot;&gt;imagemin-optipng&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GIF&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-giflossy&quot; rel=&quot;nofollow&quot;&gt;imagemin-giflossy&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-gifsicle&quot; rel=&quot;nofollow&quot;&gt;imagemin-gifsicle&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SVG&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-svgo&quot; rel=&quot;nofollow&quot;&gt;imagemin-svgo&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;WebP&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.npmjs.com/package/imagemin-webp&quot; rel=&quot;nofollow&quot;&gt;imagemin-webp&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;A list of possible Imagemin plugins can be found &lt;a href=&quot;https://www.npmjs.com/browse/keyword/imageminplugin&quot; rel=&quot;nofollow&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;imagemin-npm-module&quot;&gt;Imagemin npm module&lt;/h3&gt;
+
+&lt;p&gt;Here, we use the npm module which offers more configuration options, but you can try the CLI as a decent alternative if you want to try Imagemin without touching any code.&lt;/p&gt;
+
+&lt;p&gt;First make sure we have &lt;a href=&quot;https://nodejs.org/en/&quot; rel=&quot;nofollow&quot;&gt;Node.js&lt;/a&gt; working development environment in our system.&lt;/p&gt;
+
+&lt;h4 id=&quot;lossy-plugins&quot;&gt;Lossy plugin(s)&lt;/h4&gt;
+
+&lt;p&gt;Install necessary dependencies:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;imagemin imagemin-mozjpeg imagemin-pngquant &lt;span class=&quot;nt&quot;&gt;--save&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Create a script file say &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imagemin-lossy.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imagemin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;imagemin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageminMozjpeg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;imagemin-mozjpeg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageminPngquant&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;imagemin-pngquant&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imagemin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./input/*.{jpeg,jpg,png}&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;destination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./output/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;imageminMozjpeg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;quality&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}),&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;imageminPngquant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;quality&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}),&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//=&amp;gt; [{data: &amp;lt;Buffer 89 50 4e …&amp;gt;, destinationPath: 'build/images/foo.jpg'}, …]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Put images inside input folder and run script with following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node imagemin-lossy.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It will output our compressed images in output folder.&lt;/p&gt;
+
+&lt;h4 id=&quot;lossless-plugins&quot;&gt;Lossless plugin(s)&lt;/h4&gt;
+
+&lt;p&gt;Install necessary dependencies:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;imagemin imagemin-jpegtran imagemin-optipng &lt;span class=&quot;nt&quot;&gt;--save&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Create a script file say &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imagemin-lossless.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imagemin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;imagemin&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageminJpegtran&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;imagemin-jpegtran&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageminOptipng&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;imagemin-optipng&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imagemin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./input/*.{jpeg,jpg,png}&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;destination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./output/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imageminJpegtran&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;progressive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}),&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageminOptipng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//=&amp;gt; [{data: &amp;lt;Buffer 89 50 4e …&amp;gt;, destinationPath: 'build/images/foo.jpg'}, …]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Put images inside input folder and run script with following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node imagemin-lossless.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It will output our compressed images in output folder.&lt;/p&gt;
+
+&lt;h3 id=&quot;further-resources&quot;&gt;Further resources&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/MilanAryal/imagemin-template&quot;&gt;Imagemin template&lt;/a&gt; on GitHub.&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to compress JPEG and PNG image files using NPM package Imagemin in easy steps.</summary></entry><entry><title type="html">Minify Jekyll’s final HTML output files</title><link href="https://milanaryal.com.np/minify-jekyll-final-html-output-files/" rel="alternate" type="text/html" title="Minify Jekyll’s final HTML output files" /><published>2021-04-10T06:00:00+05:45</published><updated>2021-04-10T06:00:00+05:45</updated><id>https://milanaryal.com.np/minify-jekyll-final-html-output-files</id><content type="html" xml:base="https://milanaryal.com.np/minify-jekyll-final-html-output-files/">&lt;p&gt;Site assets minifying (or in another word compressing) helps to decrease site load and speed up browser loading time. Just like with CSS and JavaScript, HTML output can be compressed and minified by removing whitespace, new lines, comments and even removing certain optional closing tags, making for smaller file sizes.&lt;/p&gt;
 
 &lt;p&gt;Popular static site generator, Hugo version 0.47 introduced the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--minify&lt;/code&gt; flag command which execute to minify the final HTML output to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/public&lt;/code&gt; by simply running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hugo --minify&lt;/code&gt;. Here, we are going to use the same dependency &lt;a href=&quot;https://github.com/tdewolff/minify&quot; rel=&quot;nofollow&quot;&gt;Minify&lt;/a&gt; written in Go language by &lt;em&gt;Taco de Wolff&lt;/em&gt;. It’s extremely fast compare to other minify tools (and depends upon your site weight).&lt;/p&gt;
 
@@ -962,144 +1094,4 @@
   &lt;li&gt;&lt;a href=&quot;https://css-tricks.com/why-npm-scripts/&quot; rel=&quot;nofollow&quot;&gt;Why npm Scripts?&lt;/a&gt;: By Damon Bauer on CSS-Tricks&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://deliciousbrains.com/npm-build-script/&quot; rel=&quot;nofollow&quot;&gt;Using Npm Scripts as a Build Tool&lt;/a&gt;: By Gilbert Pellegrom on Delicious Brains&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/&quot; rel=&quot;nofollow&quot;&gt;How to Use npm as a Build Tool&lt;/a&gt;: By Keith Cirkel&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to use npm scrips to compile assets for your web projects with spending less time on setting up the configurations.</summary></entry><entry><title type="html">Deploying and hosting static sites with GitLab Pages</title><link href="https://milanaryal.com.np/deploying-and-hosting-with-gitlab-pages/" rel="alternate" type="text/html" title="Deploying and hosting static sites with GitLab Pages" /><published>2020-06-16T14:00:00+05:45</published><updated>2020-06-18T14:00:00+05:45</updated><id>https://milanaryal.com.np/deploying-and-hosting-with-gitlab-pages</id><content type="html" xml:base="https://milanaryal.com.np/deploying-and-hosting-with-gitlab-pages/">&lt;p&gt;&lt;a href=&quot;https://gitlab.com/&quot; rel=&quot;nofollow&quot;&gt;GitLab&lt;/a&gt; makes it incredibly easy to build, deploy, and host your modern static websites via their free GitLab Pages service, which provides native support for &lt;a href=&quot;https://gitlab.com/pages&quot; rel=&quot;nofollow&quot;&gt;numerous Static Site Generators (SSG)&lt;/a&gt;, such as Gatsby, Next.js, Nuxt, Jekyll, Hugo, Hexo, Middleman and Pelican.&lt;/p&gt;
-
-&lt;h3 id=&quot;assumptions&quot;&gt;Assumptions&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Working familiarity with Git for version control&lt;/li&gt;
-  &lt;li&gt;A &lt;a href=&quot;https://gitlab.com/users/sign_in&quot; rel=&quot;nofollow&quot;&gt;GitLab account&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;A &lt;a href=&quot;https://www.staticgen.com/&quot; rel=&quot;nofollow&quot;&gt;staticgen&lt;/a&gt; website on your local machine that you are ready to publish&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;create-gitlab-ciyml&quot;&gt;Create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitlab-ci.yml&lt;/code&gt;&lt;/h3&gt;
-
-&lt;p&gt;In the root directory of your site project folder, create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitlab-ci.yml&lt;/code&gt; file. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitlab-ci.yml&lt;/code&gt; configures the GitLab CI on how to build your page. Simply add the content below.&lt;/p&gt;
-
-&lt;h4 id=&quot;gitlab-ci-for-plain-html-sites&quot;&gt;&lt;a href=&quot;https://gitlab.com/pages/plain-html&quot; rel=&quot;nofollow&quot;&gt;GitLab CI for Plain HTML sites&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;This project’s static Pages are built by &lt;a href=&quot;https://gitlab.com/pages/plain-html&quot; rel=&quot;nofollow&quot;&gt;GitLab CI&lt;/a&gt;, following the steps
-defined in &lt;a href=&quot;https://gitlab.com/pages/plain-html/-/blob/master/.gitlab-ci.yml&quot; rel=&quot;nofollow&quot;&gt;.gitlab-ci.yml&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;alpine:latest&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;pages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;stage&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;deploy&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;echo 'Nothing to do...'&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;artifacts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The above example expects to put all your HTML files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; directory.&lt;/p&gt;
-
-&lt;h4 id=&quot;gitlab-ci-for-gatsby-sites&quot;&gt;&lt;a href=&quot;https://gitlab.com/pages/gatsby&quot; rel=&quot;nofollow&quot;&gt;GitLab CI for Gatsby sites&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;This project’s static Pages are built by &lt;a href=&quot;https://about.gitlab.com/gitlab-ci/&quot; rel=&quot;nofollow&quot;&gt;GitLab CI&lt;/a&gt;, following the steps
-defined in &lt;a href=&quot;https://gitlab.com/pages/gatsby/-/blob/master/.gitlab-ci.yml&quot; rel=&quot;nofollow&quot;&gt;.gitlab-ci.yml&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;node:latest&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# This folder is cached between builds&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# http://docs.gitlab.com/ce/ci/yaml/README.html#cache&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;node_modules/&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# Enables git-lab CI caching. Both .cache and public must be cached, otherwise builds will fail.&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.cache/&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public/&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;pages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;npm install&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./node_modules/.bin/gatsby build --prefix-paths&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;artifacts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The above example expects to put all your HTML files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; directory.&lt;/p&gt;
-
-&lt;h4 id=&quot;gitlab-ci-for-jekyll-sites&quot;&gt;&lt;a href=&quot;https://gitlab.com/pages/jekyll&quot;&gt;GitLab CI for Jekyll sites&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;This project’s static Pages are built by &lt;a href=&quot;https://about.gitlab.com/gitlab-ci/&quot; rel=&quot;nofollow&quot;&gt;GitLab CI&lt;/a&gt;, following the steps
-defined in &lt;a href=&quot;https://gitlab.com/pages/jekyll/-/blob/master/.gitlab-ci.yml&quot; rel=&quot;nofollow&quot;&gt;.gitlab-ci.yml&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ruby:latest&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;variables&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;production&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;pages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle install&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bundle exec jekyll build -d public&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;artifacts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The above example expects to put all your HTML files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; directory.&lt;/p&gt;
-
-&lt;h4 id=&quot;gitlab-ci-for-hugo-sites&quot;&gt;&lt;a href=&quot;https://gitlab.com/pages/hugo&quot; rel=&quot;nofollow&quot;&gt;GitLab CI for Hugo sites&lt;/a&gt;&lt;/h4&gt;
-
-&lt;p&gt;This project’s static Pages are built by &lt;a href=&quot;https://about.gitlab.com/gitlab-ci/&quot; rel=&quot;nofollow&quot;&gt;GitLab CI&lt;/a&gt;, following the steps
-defined in &lt;a href=&quot;https://gitlab.com/pages/hugo/-/blob/master/.gitlab-ci.yml&quot; rel=&quot;nofollow&quot;&gt;.gitlab-ci.yml&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;monachus/hugo&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;variables&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;GIT_SUBMODULE_STRATEGY&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;recursive&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;pages&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;hugo&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;artifacts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;public&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The above example expects to put all your HTML files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; directory.&lt;/p&gt;
-
-&lt;h4 id=&quot;gitlab-pages-examples&quot;&gt;GitLab Pages examples&lt;/h4&gt;
-
-&lt;p&gt;&lt;em&gt;Example websites hosted by GitLab Pages:&lt;/em&gt; Check out the &lt;a href=&quot;https://gitlab.com/pages&quot; rel=&quot;nofollow&quot;&gt;GitLab Pages official group&lt;/a&gt; for a list of example projects, where you can explore some good options for Static Site Generators for Ruby, NodeJS and Python environments.&lt;/p&gt;
-
-&lt;h3 id=&quot;push-your-site-project-to-gitlab&quot;&gt;Push your site project to GitLab&lt;/h3&gt;
-
-&lt;p&gt;Next, create a new repository on GitLab. It is not necessary to make the repository public. In addition, you might want to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public/&lt;/code&gt; (and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_site/&lt;/code&gt; for Jekyll) to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt; file, as there is no need to push compiled assets to GitLab or keep your output website in version control.&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# initialize new git repository
-git init
-
-# add public/ directory to our .gitignore file
-echo &quot;public/&quot; &amp;gt;&amp;gt; .gitignore
-
-# for Jekyll add _site/ directory to our .gitignore file
-echo &quot;_site/&quot; &amp;gt;&amp;gt; .gitignore
-
-# commit and push code to master branch
-git add .
-git commit -m &quot;Initial commit&quot;
-git remote add origin https://gitlab.com/YourUsername/your-static-site.git
-git push -u origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;wait-for-your-page-to-build&quot;&gt;Wait for your page to build&lt;/h3&gt;
-
-&lt;p&gt;That’s it! You can now follow the CI agent building your page at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://gitlab.com/&amp;lt;YourUsername&amp;gt;/&amp;lt;your-static-site&amp;gt;/pipelines&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;After the build has passed, your new website is available at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://&amp;lt;YourUsername&amp;gt;.gitlab.io/&amp;lt;your-static-site&amp;gt;/&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;next-steps&quot;&gt;Next steps&lt;/h3&gt;
-
-&lt;p&gt;GitLab supports using custom CNAME’s and TLS certificates. For more details on GitLab Pages, see the &lt;a href=&quot;https://about.gitlab.com/blog/2016/04/07/gitlab-pages-setup/#custom-domains&quot; rel=&quot;nofollow&quot;&gt;GitLab Pages setup documentation&lt;/a&gt;.&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to deploy and host your modern static websites on GitLab.com with GitLab Pages for free.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to use npm scrips to compile assets for your web projects with spending less time on setting up the configurations.</summary></entry></feed>
