@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-04-24T15:13:17+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">How to compress images using Imagemin</title><link href="https://milanaryal.com.np/how-to-compress-images-using-imagemin/" rel="alternate" type="text/html" title="How to compress images using Imagemin" /><published>2021-04-23T23:00:00+05:45</published><updated>2021-04-23T23:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-compress-images-using-imagemin</id><content type="html" xml:base="https://milanaryal.com.np/how-to-compress-images-using-imagemin/">&lt;p&gt;In this post, we will learn to compress popular images format like JPEG, PNG,… in &lt;em&gt;Node.js&lt;/em&gt; development environment.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-04-27T14:04:41+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">How to compress images using Imagemin</title><link href="https://milanaryal.com.np/how-to-compress-images-using-imagemin/" rel="alternate" type="text/html" title="How to compress images using Imagemin" /><published>2021-04-23T23:00:00+05:45</published><updated>2021-04-23T23:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-compress-images-using-imagemin</id><content type="html" xml:base="https://milanaryal.com.np/how-to-compress-images-using-imagemin/">&lt;p&gt;In this post, we will learn to compress popular images format like JPEG, PNG,… in &lt;em&gt;Node.js&lt;/em&gt; development environment.&lt;/p&gt;
 
 &lt;p&gt;We are using NPM package called &lt;a href=&quot;https://www.npmjs.com/package/imagemin&quot; rel=&quot;nofollow&quot;&gt;Imagemin&lt;/a&gt; and it’s supportive plugins to compress images for our project.&lt;/p&gt;
 
@@ -647,6 +647,15 @@
   &lt;li&gt;&lt;a href=&quot;https://chart.nepsechart.com/&quot; rel=&quot;nofollow&quot;&gt;NepseChart&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&quot;nepse-online-technical-analysis-chart-for-paid&quot;&gt;NEPSE online technical analysis chart [for paid]&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://merolagani.com/ServiceDetails.aspx?ServiceId=1&quot; rel=&quot;nofollow&quot;&gt;Merolagani Data Analytics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pro.sharesansar.com/&quot; rel=&quot;nofollow&quot;&gt;ShareSansar SS Pro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.smartwealthpro.com/&quot; rel=&quot;nofollow&quot;&gt;Smart Wealth Pro&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.systemxlite.com/&quot; rel=&quot;nofollow&quot;&gt;systemxlite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;popular-online-business-news-portals-of-nepal&quot;&gt;Popular online business news portals of Nepal&lt;/h3&gt;
 
 &lt;ul&gt;
@@ -681,6 +690,7 @@
   &lt;li&gt;&lt;a href=&quot;https://laganikhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Lagani Khabar&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.merolagani.com/&quot; rel=&quot;nofollow&quot;&gt;Mero Lagani&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://nepalipaisa.com/&quot; rel=&quot;nofollow&quot;&gt;Nepali Paisa&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nepsealpha.com/&quot; rel=&quot;nofollow&quot;&gt;Nepse Alpha&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://nepsekhabar.com/&quot; rel=&quot;nofollow&quot;&gt;NepseKhabar&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.newbusinessage.com/&quot; rel=&quot;nofollow&quot;&gt;New Business Age (ENG)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://notebazar.com/&quot; rel=&quot;nofollow&quot;&gt;Note Bazar&lt;/a&gt;&lt;/li&gt;
@@ -695,6 +705,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://baahrakhari.com/&quot; rel=&quot;nofollow&quot;&gt;Baahrakhari&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://bigulnews.com/&quot; rel=&quot;nofollow&quot;&gt;Bigul News&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://centralkhabar.com/&quot; rel=&quot;nofollow&quot;&gt;Central Khabar&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.dainiki.com/&quot; rel=&quot;nofollow&quot;&gt;Dainiki&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.deshkonews.com/&quot; rel=&quot;nofollow&quot;&gt;Desh Ko News&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://deshsanchar.com/&quot; rel=&quot;nofollow&quot;&gt;Desh Sanchar&lt;/a&gt;&lt;/li&gt;
