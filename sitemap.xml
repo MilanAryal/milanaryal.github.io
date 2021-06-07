@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://milanaryal.com.np/about/</loc>
-<lastmod>2021-06-03T12:36:32+05:45</lastmod>
+<lastmod>2021-06-07T09:02:24+05:45</lastmod>
 </url>
 <url>
 <loc>https://milanaryal.com.np/contact/</loc>
-<lastmod>2021-06-03T12:36:32+05:45</lastmod>
+<lastmod>2021-06-07T09:02:24+05:45</lastmod>
 </url>
 <url>
 <loc>https://milanaryal.com.np/how-to-succeed/</loc>
@@ -334,7 +334,7 @@
 </url>
 <url>
 <loc>https://milanaryal.com.np/blogging-with-jekyll-and-github-pages/</loc>
-<lastmod>2021-04-10T10:50:00+05:45</lastmod>
+<lastmod>2021-06-07T08:00:00+05:45</lastmod>
 </url>
 <url>
 <loc>https://milanaryal.com.np/programming-languages-used-in-most-popular-websites/</loc>
@@ -658,7 +658,7 @@
 </url>
 <url>
 <loc>https://milanaryal.com.np/minify-jekyll-final-html-output-files/</loc>
-<lastmod>2021-04-10T06:00:00+05:45</lastmod>
+<lastmod>2021-06-07T08:00:00+05:45</lastmod>
 </url>
 <url>
 <loc>https://milanaryal.com.np/how-to-compress-images-using-imagemin/</loc>
