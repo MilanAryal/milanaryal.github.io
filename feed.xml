@@ -1,50 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-20T18:19:12+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">How to remove Office 2019/16 product key on Windows</title><link href="https://milanaryal.com.np/how-to-remove-office-product-key/" rel="alternate" type="text/html" title="How to remove Office 2019/16 product key on Windows" /><published>2021-06-20T07:00:00+05:45</published><updated>2021-06-20T07:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-remove-office-product-key</id><content type="html" xml:base="https://milanaryal.com.np/how-to-remove-office-product-key/">&lt;ol&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-20T20:51:16+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">How to remove Office 2019/16 product key on Windows</title><link href="https://milanaryal.com.np/how-to-remove-office-product-key/" rel="alternate" type="text/html" title="How to remove Office 2019/16 product key on Windows" /><published>2021-06-20T07:00:00+05:45</published><updated>2021-06-20T07:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-remove-office-product-key</id><content type="html" xml:base="https://milanaryal.com.np/how-to-remove-office-product-key/">&lt;p&gt;1. Open a PowerShell (or command prompt) as Administrator&lt;/p&gt;
+
+&lt;p&gt;2. In the PowerShell (or command prompt), type the following:&lt;/p&gt;
+
+&lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;Open a PowerShell (or command prompt) as Administrator&lt;/p&gt;
+    &lt;p&gt;Office 2019/16 (32-bit) on a 32-bit version of Windows&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /dstatus&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;In the PowerShell (or command prompt), type the following:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Office 2019/16 (32-bit) on a 32-bit version of Windows&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /dstatus&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Office 2019/16 (32-bit) on a 64-bit version of Windows&lt;br /&gt;
+    &lt;p&gt;Office 2019/16 (32-bit) on a 64-bit version of Windows&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files (x86)\Microsoft Office\Office16\OSPP.VBS&quot; /dstatus&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Office 2019/16 (64-bit) on a 64-bit version of Windows&lt;br /&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Office 2019/16 (64-bit) on a 64-bit version of Windows&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /dstatus&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;You should now get a screen with some license details such as the license name, type and the last 5 characters of the Product Key.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;You can use the last 5 characters of the Product Key to remove it using command:&lt;/p&gt;
+&lt;/ul&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Office 2019/16 (32-bit) on a 32-bit version of Windows&lt;br /&gt;
+&lt;p&gt;3. You should now get a screen with some license details such as the license name, type and the last 5 characters of the Product Key.&lt;/p&gt;
+
+&lt;p&gt;4. You can use the last 5 characters of the Product Key to remove it using command:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Office 2019/16 (32-bit) on a 32-bit version of Windows&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /unpkey:&amp;lt;LAST 5 CHARACTERS&amp;gt;&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Office 2019/16 (32-bit) on a 64-bit version of Windows&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files (x86)\Microsoft Office\Office16\OSPP.VBS&quot; /unpkey:&amp;lt;LAST 5 CHARACTERS&amp;gt;&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Office 2019/16 (64-bit) on a 64-bit version of Windows&lt;br /&gt;
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /unpkey:&amp;lt;LAST 5 CHARACTERS&amp;gt;&lt;/code&gt;&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Cheers! — &lt;em&gt;&lt;a href=&quot;https://gist.github.com/c3209cb215226d47322d98499c7a1df7&quot; rel=&quot;nofollow&quot;&gt;Src&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
+    &lt;p&gt;Office 2019/16 (32-bit) on a 64-bit version of Windows&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files (x86)\Microsoft Office\Office16\OSPP.VBS&quot; /unpkey:&amp;lt;LAST 5 CHARACTERS&amp;gt;&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Lean how to remove Microsoft Office 2019 (or Office 2016) product key with simple command shell scripts.</summary></entry><entry><title type="html">How to change your birthday on Facebook [after the limit]</title><link href="https://milanaryal.com.np/how-to-change-your-birthday-on-facebook/" rel="alternate" type="text/html" title="How to change your birthday on Facebook [after the limit]" /><published>2021-06-10T06:00:00+05:45</published><updated>2021-06-10T06:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-change-your-birthday-on-facebook</id><content type="html" xml:base="https://milanaryal.com.np/how-to-change-your-birthday-on-facebook/">&lt;p&gt;If you’ve just recently changed your date of birth, you may have to wait a few days before you can change it again. To help make sure that people are using their real identities on Facebook, there’s a limit to how many times you can change your birthdate. Once you’re able to change your birthday again, follow the steps here: &lt;a href=&quot;https://www.facebook.com/help/563229410363824&quot; rel=&quot;nofollow&quot;&gt;fb.com/help/563229410363824&lt;/a&gt;.&lt;/p&gt;
+  &lt;li&gt;
+    &lt;p&gt;Office 2019/16 (64-bit) on a 64-bit version of Windows&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /unpkey:&amp;lt;LAST 5 CHARACTERS&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;5. Cheers! — &lt;em&gt;&lt;a href=&quot;https://gist.github.com/c3209cb215226d47322d98499c7a1df7&quot; rel=&quot;nofollow&quot;&gt;Src&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Lean how to remove Microsoft Office 2019 (or Office 2016) product key with simple command shell scripts.</summary></entry><entry><title type="html">How to change your birthday on Facebook [after the limit]</title><link href="https://milanaryal.com.np/how-to-change-your-birthday-on-facebook/" rel="alternate" type="text/html" title="How to change your birthday on Facebook [after the limit]" /><published>2021-06-10T06:00:00+05:45</published><updated>2021-06-10T06:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-change-your-birthday-on-facebook</id><content type="html" xml:base="https://milanaryal.com.np/how-to-change-your-birthday-on-facebook/">&lt;p&gt;If you’ve just recently changed your date of birth, you may have to wait a few days before you can change it again. To help make sure that people are using their real identities on Facebook, there’s a limit to how many times you can change your birthdate. Once you’re able to change your birthday again, follow the steps here: &lt;a href=&quot;https://www.facebook.com/help/563229410363824&quot; rel=&quot;nofollow&quot;&gt;fb.com/help/563229410363824&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;But, &lt;strong&gt;when you hit the limit&lt;/strong&gt; your profile will be locked to change your birthdate. &lt;strong&gt;To change your locked birthdate&lt;/strong&gt; you can try to ask Facebook staff to do it for you.&lt;br /&gt;
 First log into your Facebook account (from your favourite web browser). &lt;strong&gt;Click on this link (&lt;a href=&quot;https://www.facebook.com/help/contact/233841356784195&quot; rel=&quot;nofollow&quot;&gt;fb.com/help/contact/233841356784195&lt;/a&gt;)&lt;/strong&gt; and select the day month and year of your birthday. Then type a short reason why you want to change your birthday. And click submit. Just in a few seconds Facebook will send a notification to your email and tells you that the Facebook team had changed it for you.&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to change your Facebook locked birthdate when you hit the limit.</summary></entry><entry><title type="html">How to compress images using Imagemin</title><link href="https://milanaryal.com.np/how-to-compress-images-using-imagemin/" rel="alternate" type="text/html" title="How to compress images using Imagemin" /><published>2021-04-23T23:00:00+05:45</published><updated>2021-04-23T23:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-compress-images-using-imagemin</id><content type="html" xml:base="https://milanaryal.com.np/how-to-compress-images-using-imagemin/">&lt;p&gt;In this post, we will learn to compress popular images format like JPEG, PNG,… in &lt;em&gt;Node.js&lt;/em&gt; development environment.&lt;/p&gt;
