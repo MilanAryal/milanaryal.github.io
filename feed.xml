@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-14T23:20:37+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">How to change your birthday on Facebook [after the limit]</title><link href="https://milanaryal.com.np/how-to-change-your-birthday-on-facebook/" rel="alternate" type="text/html" title="How to change your birthday on Facebook [after the limit]" /><published>2021-06-10T06:00:00+05:45</published><updated>2021-06-10T06:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-change-your-birthday-on-facebook</id><content type="html" xml:base="https://milanaryal.com.np/how-to-change-your-birthday-on-facebook/">&lt;p&gt;If you’ve just recently changed your date of birth, you may have to wait a few days before you can change it again. To help make sure that people are using their real identities on Facebook, there’s a limit to how many times you can change your birthdate. Once you’re able to change your birthday again, follow the steps here: &lt;a href=&quot;https://www.facebook.com/help/563229410363824&quot; rel=&quot;nofollow&quot;&gt;fb.com/help/563229410363824&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-20T13:53:58+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">How to remove Office 2019/16 product key on Windows</title><link href="https://milanaryal.com.np/how-to-remove-office-product-key/" rel="alternate" type="text/html" title="How to remove Office 2019/16 product key on Windows" /><published>2021-06-20T07:00:00+05:45</published><updated>2021-06-20T07:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-remove-office-product-key</id><content type="html" xml:base="https://milanaryal.com.np/how-to-remove-office-product-key/">&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Open a PowerShell (or command prompt) as Administrator&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the PowerShell (or command prompt), type the following:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Office 2019/16 (32-bit) on a 32-bit version of Windows&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /dstatus&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Office 2019/16 (32-bit) on a 64-bit version of Windows&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files (x86)\Microsoft Office\Office16\OSPP.VBS&quot; /dstatus&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Office 2019/16 (64-bit) on a 64-bit version of Windows&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /dstatus&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You should now get a screen with some license details such as the license name, type and the last 5 characters of the Product Key.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You can use the last 5 characters of the Product Key to remove it using command:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Office 2019/16 (32-bit) on a 32-bit version of Windows&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /unpkey:&amp;lt;LAST 5 CHARACTERS&amp;gt;&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Office 2019/16 (32-bit) on a 64-bit version of Windows&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files (x86)\Microsoft Office\Office16\OSPP.VBS&quot; /unpkey:&amp;lt;LAST 5 CHARACTERS&amp;gt;&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Office 2019/16 (64-bit) on a 64-bit version of Windows&lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; /unpkey:&amp;lt;LAST 5 CHARACTERS&amp;gt;&lt;/code&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cheers! — &lt;em&gt;&lt;a href=&quot;https://gist.github.com/c3209cb215226d47322d98499c7a1df7&quot; rel=&quot;nofollow&quot;&gt;Src&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Lean how to remove Microsoft Office 2019 (or Office 2016) product key with simple command shell scripts.</summary></entry><entry><title type="html">How to change your birthday on Facebook [after the limit]</title><link href="https://milanaryal.com.np/how-to-change-your-birthday-on-facebook/" rel="alternate" type="text/html" title="How to change your birthday on Facebook [after the limit]" /><published>2021-06-10T06:00:00+05:45</published><updated>2021-06-10T06:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-change-your-birthday-on-facebook</id><content type="html" xml:base="https://milanaryal.com.np/how-to-change-your-birthday-on-facebook/">&lt;p&gt;If you’ve just recently changed your date of birth, you may have to wait a few days before you can change it again. To help make sure that people are using their real identities on Facebook, there’s a limit to how many times you can change your birthdate. Once you’re able to change your birthday again, follow the steps here: &lt;a href=&quot;https://www.facebook.com/help/563229410363824&quot; rel=&quot;nofollow&quot;&gt;fb.com/help/563229410363824&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;But, &lt;strong&gt;when you hit the limit&lt;/strong&gt; your profile will be locked to change your birthdate. &lt;strong&gt;To change your locked birthdate&lt;/strong&gt; you can try to ask Facebook staff to do it for you.&lt;br /&gt;
 First log into your Facebook account (from your favourite web browser). &lt;strong&gt;Click on this link (&lt;a href=&quot;https://www.facebook.com/help/contact/233841356784195&quot; rel=&quot;nofollow&quot;&gt;fb.com/help/contact/233841356784195&lt;/a&gt;)&lt;/strong&gt; and select the day month and year of your birthday. Then type a short reason why you want to change your birthday. And click submit. Just in a few seconds Facebook will send a notification to your email and tells you that the Facebook team had changed it for you.&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to change your Facebook locked birthdate when you hit the limit.</summary></entry><entry><title type="html">How to compress images using Imagemin</title><link href="https://milanaryal.com.np/how-to-compress-images-using-imagemin/" rel="alternate" type="text/html" title="How to compress images using Imagemin" /><published>2021-04-23T23:00:00+05:45</published><updated>2021-04-23T23:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-compress-images-using-imagemin</id><content type="html" xml:base="https://milanaryal.com.np/how-to-compress-images-using-imagemin/">&lt;p&gt;In this post, we will learn to compress popular images format like JPEG, PNG,… in &lt;em&gt;Node.js&lt;/em&gt; development environment.&lt;/p&gt;
@@ -943,28 +989,4 @@ First log into your Facebook account (from your favourite web browser). &lt;stro
   &lt;li&gt;&lt;a href=&quot;https://dns.watch/&quot; rel=&quot;nofollow&quot;&gt;DNS.Watch&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.quad9.net/&quot; rel=&quot;nofollow&quot;&gt;Quad9 DNS&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.verisign.com/en_US/security-services/public-dns/index.xhtml&quot; rel=&quot;nofollow&quot;&gt;Verisign Public DNS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">A list of publicly available fast and secure DNS resolvers service provider for free of cost.</summary></entry><entry><title type="html">Modern static sites deployment service provider [for free]</title><link href="https://milanaryal.com.np/static-and-jamstack-continuous-deployment-with-git/" rel="alternate" type="text/html" title="Modern static sites deployment service provider [for free]" /><published>2020-06-29T10:00:00+05:45</published><updated>2020-06-29T10:00:00+05:45</updated><id>https://milanaryal.com.np/static-and-jamstack-continuous-deployment-with-git</id><content type="html" xml:base="https://milanaryal.com.np/static-and-jamstack-continuous-deployment-with-git/">&lt;p&gt;Here’s a list of best websites which offer free continuous deployment service with Git for modern static and Jamstack websites.&lt;/p&gt;
-
-&lt;h3 id=&quot;netlify&quot;&gt;&lt;a href=&quot;https://www.netlify.com/about/&quot; rel=&quot;nofollow&quot;&gt;Netlify&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;All sites on Netlify are prebuilt for performance and deployed directly to our global edge network — without requiring you to manage, scale, or patch any web servers. This enables a revolutionary new architecture called the Jamstack, designed to make the web faster — and to support the new tools and workflows used in modern web development.&lt;/p&gt;
-
-&lt;h3 id=&quot;vercel&quot;&gt;&lt;a href=&quot;https://vercel.com/about&quot; rel=&quot;nofollow&quot;&gt;Vercel&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Vercel is the optimal workflow for frontend teams. It offers all-in-one services: static and Jamstack deployment, serverless functions, and global CDN.&lt;/p&gt;
-
-&lt;h3 id=&quot;gitlab-pages&quot;&gt;&lt;a href=&quot;https://docs.gitlab.com/ee/user/project/pages/&quot; rel=&quot;nofollow&quot;&gt;GitLab Pages&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;GitLab Pages are public web pages for users, organizations, and repositories, that are freely hosted on GitLab’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gitlab.io&lt;/code&gt; domain or on a custom domain name of your choice. To publish a website with GitLab Pages, you can use any SSG, like Gatsby, Jekyll, Hugo, Middleman, Harp, Hexo, and Brunch, just to name a few. You can also publish any website written directly in plain HTML, CSS, and JavaScript for free.&lt;/p&gt;
-
-&lt;h3 id=&quot;github-pages&quot;&gt;&lt;a href=&quot;https://pages.github.com/&quot; rel=&quot;nofollow&quot;&gt;GitHub Pages&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;GitHub Pages are public web pages for users, organizations, and repositories, that are freely hosted on GitHub’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github.io&lt;/code&gt; domain or on a custom domain name of your choice. GitHub Pages are powered by Jekyll behind the scenes, so they’re a great way to host your Jekyll-powered website for free.&lt;/p&gt;
-
-&lt;h3 id=&quot;related-posts&quot;&gt;Related posts&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://milanaryal.com.np/deploying-and-hosting-with-gitlab-pages/&quot;&gt;Deploying and hosting static sites with GitLab Pages&lt;/a&gt;: Learn how to deploy and host your modern static websites on GitLab.com with GitLab Pages for free.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://milanaryal.com.np/blogging-with-jekyll-and-github-pages/&quot;&gt;Blogging with Jekyll and GitHub Pages&lt;/a&gt;: Transform your plain text into static websites and blogs.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.netlify.com/blog/2016/10/27/a-step-by-step-guide-deploying-a-static-site-or-single-page-app/&quot; rel=&quot;nofollow&quot;&gt;Deploying a static site or single-page app on Netlify&lt;/a&gt;: Make your site blazing fast with this step-by-step guide on how to deploy a static site or single-page app on Netlify.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">A list of best websites which offer free continuous deployment with Git for modern static and Jamstack websites.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">A list of publicly available fast and secure DNS resolvers service provider for free of cost.</summary></entry></feed>
