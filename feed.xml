@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-25T16:53:44+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">How to remove Office 2019/16 product key on Windows</title><link href="https://milanaryal.com.np/how-to-remove-office-product-key/" rel="alternate" type="text/html" title="How to remove Office 2019/16 product key on Windows" /><published>2021-06-20T07:00:00+05:45</published><updated>2021-06-20T07:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-remove-office-product-key</id><content type="html" xml:base="https://milanaryal.com.np/how-to-remove-office-product-key/">&lt;p&gt;1. Open a PowerShell (or command prompt) as Administrator&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-25T23:37:12+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">Dell Inspiron 7370 Laptop configurations for Windows 11</title><link href="https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11/" rel="alternate" type="text/html" title="Dell Inspiron 7370 Laptop configurations for Windows 11" /><published>2021-06-25T11:00:00+05:45</published><updated>2021-06-25T11:00:00+05:45</updated><id>https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11</id><content type="html" xml:base="https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11/">&lt;p&gt;Last night (June 24, 2021 8:45-9:45PM GMT+05:45), Microsoft unveiled next generation Windows 11 with following minimum system requirements.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Windows 11&lt;/th&gt;
+      &lt;th&gt;Minimum system requirements&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Processor&lt;/td&gt;
+      &lt;td&gt;1 gigahertz (GHz) or faster with 2 or more cores on a compatible 64-bit processor or System on a Chip (SoC)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Memory&lt;/td&gt;
+      &lt;td&gt;4 GB RAM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Storage&lt;/td&gt;
+      &lt;td&gt;64 GB or larger storage device&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;System firmware&lt;/td&gt;
+      &lt;td&gt;UEFI, Secure Boot capable&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TPM&lt;/td&gt;
+      &lt;td&gt;Trusted Platform Module (TPM) version 2.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Graphics card&lt;/td&gt;
+      &lt;td&gt;DirectX 12 compatible graphics / WDDM 2.x&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Display&lt;/td&gt;
+      &lt;td&gt;&amp;gt;9” with HD Resolution (720p)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Internet connection&lt;/td&gt;
+      &lt;td&gt;Microsoft account and internet connectivity required for setup for Windows 11 Home&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Certain features require specific hardware, see detailed &lt;a href=&quot;https://www.microsoft.com/windows/windows-11-specifications&quot; rel=&quot;nofollow&quot;&gt;system requirements&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;configure-dell-inspiron-7370-laptop-for-windows-11&quot;&gt;Configure Dell Inspiron 7370 Laptop for Windows 11&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://www.amazon.com/Dell-Inspiron-7000-7370-Laptop/dp/B0764N2QL3&quot; rel=&quot;nofollow&quot;&gt;Dell Inspiron 13 7000 7370 Laptop&lt;/a&gt; – (13.3” Touchscreen IPS FHD (1920x1080), 8th Gen Intel Quad-Core i5-8250U/i7-8550U, 256/512GB SSD, 8/16GB DDR4, Backlit Keyboard, ..&lt;a href=&quot;https://www.cnet.com/products/dell-inspiron-7370-13-3-core-i7-8550u-16-gb-ram-512-gb-ssd/&quot; rel=&quot;nofollow&quot;&gt;detailed specs&lt;/a&gt;) is compatible for Windows 11&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Restart laptop and keep pressing F2 until BIOS setup will appear. Then setup following configurations:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;General&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Boot Sequence &amp;gt; Enable UEFI&lt;/li&gt;
+  &lt;li&gt;Advance Boot Options &amp;gt; Disable Legacy Option ROMS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Secure Boot&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enable&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Security&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enable PTT Security&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://stackoverflow.com/questions/64075223/are-intels-ptt-and-tpm-equivalent&quot; rel=&quot;nofollow&quot;&gt;Note&lt;/a&gt;&lt;/strong&gt;: The Intel PTT (Platform Trust Technology) fully supports all Microsoft’s requirements for firmware TPM (Trusted Platform Module) version 2.0 specification.&lt;/p&gt;
+
+&lt;p&gt;On Windows, you can check TPM by running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tpm.msc&lt;/code&gt; command prompt.&lt;/p&gt;
+
+&lt;p&gt;With the above setup, your PC (Dell Inspiron 7370) meets all the system requirements for Windows 11.&lt;/p&gt;
+
+&lt;h4 id=&quot;summary-of-config-for-windows-11&quot;&gt;&lt;a href=&quot;https://youtu.be/n6unGwtpbEc?t=110&quot; rel=&quot;nofollow&quot;&gt;Summary&lt;/a&gt; of config for Windows 11&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Boot Mode: UEFI&lt;/li&gt;
+  &lt;li&gt;Secure Boot: Enabled&lt;/li&gt;
+  &lt;li&gt;Legacy ROM: Disabled&lt;/li&gt;
+  &lt;li&gt;Boot Sequence: Set the Hard/SSD Drive (with the Operating System installed) as the First Boot Device&lt;/li&gt;
+  &lt;li&gt;SATA Operations: AHCI (RAID ON if system has a RAID CARD or if RAID is configured on the system)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: While starting/restarting your PC press “F2 for BIOS setup” and “F12 for Boot Menu”&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.dell.com/support/home/en-us?app=drivers&quot; rel=&quot;nofollow&quot;&gt;Drivers &amp;amp; Downloads&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Good Luck :-)&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to configure Dell Inspiron 13 7000 7370 Laptop for Microsoft Windows 11 operating system.</summary></entry><entry><title type="html">How to remove Office 2019/16 product key on Windows</title><link href="https://milanaryal.com.np/how-to-remove-office-product-key/" rel="alternate" type="text/html" title="How to remove Office 2019/16 product key on Windows" /><published>2021-06-20T07:00:00+05:45</published><updated>2021-06-20T07:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-remove-office-product-key</id><content type="html" xml:base="https://milanaryal.com.np/how-to-remove-office-product-key/">&lt;p&gt;1. Open a PowerShell (or command prompt) as Administrator&lt;/p&gt;
 
 &lt;p&gt;2. In the PowerShell (or command prompt), type the following:&lt;/p&gt;
 
@@ -848,137 +942,4 @@ First log into your Facebook account (from your favourite web browser). &lt;stro
   &lt;li&gt;
     &lt;p&gt;There is nothing new on Wall Street or in stock speculation. What has happened in the past will happen again, and again, and again. This is because human nature does not change, and it is human emotion, solidly build into human nature, that always gets in the way of human intelligence. Of this I am sure.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Jesse Livermore (Jesse Lauriston Livermore) was an American investor and security analyst. Livermore was famed for making and losing several multimillion-dollar fortunes and short selling during the stock market crashes in 1907 and 1929. Livermore led a life of brilliance and excess, surrounded by mistresses, scandals, money, and bankruptcy. He was a legendary trader who played big and made millions during the crash of 1929.</summary></entry><entry><title type="html">The best free and public DNS resolvers</title><link href="https://milanaryal.com.np/free-and-public-dns-resolvers/" rel="alternate" type="text/html" title="The best free and public DNS resolvers" /><published>2020-07-05T03:30:00+05:45</published><updated>2020-07-05T03:30:00+05:45</updated><id>https://milanaryal.com.np/free-and-public-dns-resolvers</id><content type="html" xml:base="https://milanaryal.com.np/free-and-public-dns-resolvers/">&lt;blockquote&gt;
-  &lt;p&gt;DNS resolvers (also called Domain Name resolvers) are the servers on the Internet that converts domain names into IP addresses.&lt;/p&gt;
-
-  &lt;p&gt;— &lt;a href=&quot;https://icannwiki.org/Domain_Name_Resolvers&quot; rel=&quot;nofollow&quot;&gt;ICANNWiki&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here’s a list of the best publicly available fast and secure DNS resolvers service provider for free of cost.&lt;/p&gt;
-
-&lt;h3 id=&quot;cloudflare-dns-resolver-aka-1111&quot;&gt;&lt;a href=&quot;https://developers.cloudflare.com/1.1.1.1/&quot; rel=&quot;nofollow&quot;&gt;Cloudflare DNS resolver&lt;/a&gt; [aka 1.1.1.1]&lt;/h3&gt;
-
-&lt;p&gt;1.1.1.1 is a free Domain Name System (DNS) service. The public DNS service and servers are maintained and owned by Cloudflare in partnership with APNIC. The service functions as a recursive name server providing domain name resolution for any host on the Internet. The service was announced on April 1, 2018, and is claimed by Cloudflare to be “the Internet’s fastest, privacy-first consumer DNS service”.&lt;/p&gt;
-
-&lt;p&gt;According to DNSPerf, 1.1.1.1 is the world’s fastest recursive DNS resolver, beating other popular resolvers such as Google’s Public DNS resolver.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Cloudflare&lt;/th&gt;
-      &lt;th&gt;Primary DNS&lt;/th&gt;
-      &lt;th&gt;Secondary DNS&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IPV4&lt;/td&gt;
-      &lt;td&gt;1.1.1.1&lt;/td&gt;
-      &lt;td&gt;1.0.0.1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IPV6&lt;/td&gt;
-      &lt;td&gt;2606:4700:4700::1111&lt;/td&gt;
-      &lt;td&gt;2606:4700:4700::1001&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;1.1.1.1 also offers an optional Family Protection mode for blocking access to websites with adult content as well as enforcing safe search in search engines.&lt;/p&gt;
-
-&lt;h3 id=&quot;google-public-dns&quot;&gt;&lt;a href=&quot;https://developers.google.com/speed/public-dns/&quot; rel=&quot;nofollow&quot;&gt;Google Public DNS&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;Google Public DNS is a Domain Name System (DNS) service offered to Internet users worldwide by Google. It functions as a recursive name server. Google Public DNS was announced on 3 December 2009, in an effort described as “making the web faster and more secure”.&lt;/p&gt;
-
-&lt;p&gt;As of 2018, it is the largest public DNS service in the world, handling over a trillion queries per day.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Google&lt;/th&gt;
-      &lt;th&gt;Primary DNS&lt;/th&gt;
-      &lt;th&gt;Secondary DNS&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IPV4&lt;/td&gt;
-      &lt;td&gt;8.8.8.8&lt;/td&gt;
-      &lt;td&gt;8.8.4.4&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IPV6&lt;/td&gt;
-      &lt;td&gt;2001:4860:4860::8888&lt;/td&gt;
-      &lt;td&gt;2001:4860:4860::8844&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;opendns&quot;&gt;&lt;a href=&quot;https://use.opendns.com/&quot; rel=&quot;nofollow&quot;&gt;OpenDNS&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;OpenDNS is a company and service that extends the Domain Name System (DNS) by adding features such as phishing protection and optional content filtering in addition to DNS lookup in its DNS servers.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;OpenDNS&lt;/th&gt;
-      &lt;th&gt;Primary DNS&lt;/th&gt;
-      &lt;th&gt;Secondary DNS&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IPV4&lt;/td&gt;
-      &lt;td&gt;208.67.222.222&lt;/td&gt;
-      &lt;td&gt;208.67.220.220&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IPV6&lt;/td&gt;
-      &lt;td&gt;2620:119:35::35&lt;/td&gt;
-      &lt;td&gt;2620:119:53::53&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;OpenDNS also offers an optional Family Protection mode for blocking access to websites with adult content as well as enforcing safe search in search engines.&lt;/p&gt;
-
-&lt;h3 id=&quot;adguard-dns-resolver&quot;&gt;&lt;a href=&quot;https://adguard.com/en/adguard-dns/overview.html&quot; rel=&quot;nofollow&quot;&gt;AdGuard DNS resolver&lt;/a&gt;&lt;/h3&gt;
-
-&lt;p&gt;A free service from AdGuard that provides an easy way to block ads, online trackers, and analytical systems on a DNS level. The product offers DNSCrypt, DNS over HTTPS, and DNS over TLS variants for encrypting all DNS requests and avoiding interception and/or alteration through DNS spoofing or other methods.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;AdGuard&lt;/th&gt;
-      &lt;th&gt;Primary DNS&lt;/th&gt;
-      &lt;th&gt;Secondary DNS&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IPV4&lt;/td&gt;
-      &lt;td&gt;176.103.130.130&lt;/td&gt;
-      &lt;td&gt;176.103.130.131&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IPV6&lt;/td&gt;
-      &lt;td&gt;2a00:5a60::ad1:0ff&lt;/td&gt;
-      &lt;td&gt;2a00:5a60::ad2:0ff&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;AdGuard DNS also offers an optional Family Protection mode for blocking access to websites with adult content as well as enforcing safe search in search engines.&lt;/p&gt;
-
-&lt;h3 id=&quot;additional-dns-resolvers&quot;&gt;Additional DNS resolvers&lt;/h3&gt;
-
-&lt;p&gt;Further several public DNS resolvers are as listed below:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://alternate-dns.com/index.php&quot; rel=&quot;nofollow&quot;&gt;Alternate DNS&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cleanbrowsing.org/&quot; rel=&quot;nofollow&quot;&gt;CleanBrowsing&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.comodo.com/secure-dns/&quot; rel=&quot;nofollow&quot;&gt;Comodo Secure DNS&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dns.watch/&quot; rel=&quot;nofollow&quot;&gt;DNS.Watch&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.quad9.net/&quot; rel=&quot;nofollow&quot;&gt;Quad9 DNS&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.verisign.com/en_US/security-services/public-dns/index.xhtml&quot; rel=&quot;nofollow&quot;&gt;Verisign Public DNS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">A list of publicly available fast and secure DNS resolvers service provider for free of cost.</summary></entry></feed>
+&lt;/ol&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Jesse Livermore (Jesse Lauriston Livermore) was an American investor and security analyst. Livermore was famed for making and losing several multimillion-dollar fortunes and short selling during the stock market crashes in 1907 and 1929. Livermore led a life of brilliance and excess, surrounded by mistresses, scandals, money, and bankruptcy. He was a legendary trader who played big and made millions during the crash of 1929.</summary></entry></feed>
