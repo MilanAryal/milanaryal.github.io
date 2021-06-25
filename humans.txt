@@ -13,7 +13,7 @@
 
 /* SITE */
 
-  Last updated: 2021/06/20
+  Last updated: 2021/06/25
   Language: English
   Standards: HTML5, CSS3
   Components: Jekyll v4.2.0
