@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-25T23:37:12+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">Dell Inspiron 7370 Laptop configurations for Windows 11</title><link href="https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11/" rel="alternate" type="text/html" title="Dell Inspiron 7370 Laptop configurations for Windows 11" /><published>2021-06-25T11:00:00+05:45</published><updated>2021-06-25T11:00:00+05:45</updated><id>https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11</id><content type="html" xml:base="https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11/">&lt;p&gt;Last night (June 24, 2021 8:45-9:45PM GMT+05:45), Microsoft unveiled next generation Windows 11 with following minimum system requirements.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-25T23:59:49+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">Dell Inspiron 7370 Laptop configurations for Windows 11</title><link href="https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11/" rel="alternate" type="text/html" title="Dell Inspiron 7370 Laptop configurations for Windows 11" /><published>2021-06-25T11:00:00+05:45</published><updated>2021-06-25T11:00:00+05:45</updated><id>https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11</id><content type="html" xml:base="https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11/">&lt;p&gt;Last night (June 24, 2021 8:45-9:45PM GMT+05:45), Microsoft unveiled next generation Windows 11 with following minimum system requirements.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -72,7 +72,9 @@
   &lt;li&gt;Enable PTT Security&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://stackoverflow.com/questions/64075223/are-intels-ptt-and-tpm-equivalent&quot; rel=&quot;nofollow&quot;&gt;Note&lt;/a&gt;&lt;/strong&gt;: The Intel PTT (Platform Trust Technology) fully supports all Microsoft’s requirements for firmware TPM (Trusted Platform Module) version 2.0 specification.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://stackoverflow.com/questions/64075223/are-intels-ptt-and-tpm-equivalent&quot; rel=&quot;nofollow&quot;&gt;Note&lt;/a&gt;&lt;/strong&gt;: The Intel PTT (Platform Trust Technology) fully supports all Microsoft’s requirements for firmware TPM (Trusted Platform Module) version 2.0 specification.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;On Windows, you can check TPM by running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tpm.msc&lt;/code&gt; command prompt.&lt;/p&gt;
 
@@ -84,11 +86,14 @@
   &lt;li&gt;Boot Mode: UEFI&lt;/li&gt;
   &lt;li&gt;Secure Boot: Enabled&lt;/li&gt;
   &lt;li&gt;Legacy ROM: Disabled&lt;/li&gt;
+  &lt;li&gt;TPM 2.0 / Intel PTT: Enabled&lt;/li&gt;
   &lt;li&gt;Boot Sequence: Set the Hard/SSD Drive (with the Operating System installed) as the First Boot Device&lt;/li&gt;
   &lt;li&gt;SATA Operations: AHCI (RAID ON if system has a RAID CARD or if RAID is configured on the system)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: While starting/restarting your PC press “F2 for BIOS setup” and “F12 for Boot Menu”&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: While starting/restarting your PC press “F2 for BIOS setup” and “F12 for Boot Menu”.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.dell.com/support/home/en-us?app=drivers&quot; rel=&quot;nofollow&quot;&gt;Drivers &amp;amp; Downloads&lt;/a&gt;&lt;/p&gt;
 
@@ -278,13 +283,20 @@ First log into your Facebook account (from your favourite web browser). &lt;stro
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll build &lt;span class=&quot;nt&quot;&gt;--profile&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--trace&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;install-minify-deb-package-on-ubuntu&quot;&gt;Install minify deb package on Ubuntu&lt;/h4&gt;
+&lt;h4 id=&quot;install-minify&quot;&gt;Install Minify&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/tdewolff/minify/tree/master/cmd/minify#installation&quot; rel=&quot;nofollow&quot;&gt;CLI installation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;minify
+&lt;p&gt;Deb package on Ubuntu&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;minify
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Using Homebrew on MacOS&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;tdewolff/tap/minify
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;minify-html-files&quot;&gt;Minify HTML files&lt;/h4&gt;
