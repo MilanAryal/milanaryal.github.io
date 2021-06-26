@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-25T23:59:49+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">Dell Inspiron 7370 Laptop configurations for Windows 11</title><link href="https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11/" rel="alternate" type="text/html" title="Dell Inspiron 7370 Laptop configurations for Windows 11" /><published>2021-06-25T11:00:00+05:45</published><updated>2021-06-25T11:00:00+05:45</updated><id>https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11</id><content type="html" xml:base="https://milanaryal.com.np/dell-inspiron-7370-laptop-configurations-for-windows-11/">&lt;p&gt;Last night (June 24, 2021 8:45-9:45PM GMT+05:45), Microsoft unveiled next generation Windows 11 with following minimum system requirements.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://milanaryal.com.np/feed.xml" rel="self" type="application/atom+xml" /><link href="https://milanaryal.com.np/" rel="alternate" type="text/html" /><updated>2021-06-26T07:45:43+05:45</updated><id>https://milanaryal.com.np/feed.xml</id><title type="html">Milan Aryal</title><subtitle>I'm just a regular person who believes life is simple, and I like a simple life.</subtitle><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><entry><title type="html">Dell Inspiron 7370 Laptop configuration for Windows 11</title><link href="https://milanaryal.com.np/dell-inspiron-7370-laptop-configuration-for-windows-11/" rel="alternate" type="text/html" title="Dell Inspiron 7370 Laptop configuration for Windows 11" /><published>2021-06-25T11:00:00+05:45</published><updated>2021-06-25T11:00:00+05:45</updated><id>https://milanaryal.com.np/dell-inspiron-7370-laptop-configuration-for-windows-11</id><content type="html" xml:base="https://milanaryal.com.np/dell-inspiron-7370-laptop-configuration-for-windows-11/">&lt;p&gt;Last night (June 24, 2021 8:45-9:45PM GMT+05:45), Microsoft unveiled next generation Windows 11 with following minimum system requirements.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Windows 11&lt;/th&gt;
-      &lt;th&gt;Minimum system requirements&lt;/th&gt;
+      &lt;th&gt;Specs&lt;/th&gt;
+      &lt;th&gt;Windows 11 minimum system requirements&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -45,13 +45,21 @@
 
 &lt;p&gt;Certain features require specific hardware, see detailed &lt;a href=&quot;https://www.microsoft.com/windows/windows-11-specifications&quot; rel=&quot;nofollow&quot;&gt;system requirements&lt;/a&gt;.&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;Many UEFI (Unified Extensible Firmware Interface) platforms still enable legacy BIOS compatibility using CSM (Compatibility Support Module). Intel had planned to deprecate legacy compatibility by 2020, and is working with partners on a smooth industry transition.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The new platform (With the Windows 11 UEFI configuration), will be unable to run 32-bit operating systems, unable to use related software (at least natively), and unable to use older hardware, such as RAID HBAs (and therefore older hard drives that are connected to those HBAs), network cards, and even graphics cards that lack UEFI-compatible vBIOS (launched before 2012 – 2013).&lt;/p&gt;
+
+&lt;p&gt;Those who need older programs will still be able to run them in virtualization mode, but outdated hardware will have to be retired or remain on older platforms.&lt;/p&gt;
+
 &lt;h3 id=&quot;configure-dell-inspiron-7370-laptop-for-windows-11&quot;&gt;Configure Dell Inspiron 7370 Laptop for Windows 11&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;https://www.amazon.com/Dell-Inspiron-7000-7370-Laptop/dp/B0764N2QL3&quot; rel=&quot;nofollow&quot;&gt;Dell Inspiron 13 7000 7370 Laptop&lt;/a&gt; – (13.3” Touchscreen IPS FHD (1920x1080), 8th Gen Intel Quad-Core i5-8250U/i7-8550U, 256/512GB SSD, 8/16GB DDR4, Backlit Keyboard, ..&lt;a href=&quot;https://www.cnet.com/products/dell-inspiron-7370-13-3-core-i7-8550u-16-gb-ram-512-gb-ssd/&quot; rel=&quot;nofollow&quot;&gt;detailed specs&lt;/a&gt;) is compatible for Windows 11&lt;/p&gt;
+  &lt;p&gt;Original Equipment Manufacturer (OEM): &lt;a href=&quot;https://www.amazon.com/Dell-Inspiron-7000-7370-Laptop/dp/B0764N2QL3&quot; rel=&quot;nofollow&quot;&gt;Dell Inspiron 13 7000 7370 Laptop&lt;/a&gt; – (13.3” Touchscreen IPS FHD (1920x1080), 8th Gen Intel Quad-Core i5-8250U/i7-8550U, 256/512GB SSD, 8/16GB DDR4, Backlit Keyboard, ..&lt;a href=&quot;https://www.cnet.com/products/dell-inspiron-7370-13-3-core-i7-8550u-16-gb-ram-512-gb-ssd/&quot; rel=&quot;nofollow&quot;&gt;see detailed specs&lt;/a&gt;) is compatible for Windows 11 or, if your device is already running Windows 10, you can use the &lt;a href=&quot;https://www.microsoft.com/windows/windows-11#pchealthcheck&quot; rel=&quot;nofollow&quot;&gt;PC Health Check app&lt;/a&gt; to assess compatibility.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Restart laptop and keep pressing F2 until BIOS setup will appear. Then setup following configurations:&lt;/p&gt;
+&lt;p&gt;Restart laptop and press/tap the “F2” key until UEFI (BIOS) setup will appear. Then setup following UEFI (BIOS) configuration:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;General&lt;/strong&gt;&lt;/p&gt;
 
@@ -78,9 +86,9 @@
 
 &lt;p&gt;On Windows, you can check TPM by running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tpm.msc&lt;/code&gt; command prompt.&lt;/p&gt;
 
-&lt;p&gt;With the above setup, your PC (Dell Inspiron 7370) meets all the system requirements for Windows 11.&lt;/p&gt;
+&lt;p&gt;With the above setup, your PC (Dell Inspiron 7370) meets the minimum system requirements for installing Windows 11.&lt;/p&gt;
 
-&lt;h4 id=&quot;summary-of-config-for-windows-11&quot;&gt;&lt;a href=&quot;https://youtu.be/n6unGwtpbEc?t=110&quot; rel=&quot;nofollow&quot;&gt;Summary&lt;/a&gt; of config for Windows 11&lt;/h4&gt;
+&lt;h4 id=&quot;summary-of-uefi-bios-config-for-windows-11&quot;&gt;&lt;a href=&quot;https://youtu.be/n6unGwtpbEc?t=110&quot; rel=&quot;nofollow&quot;&gt;Summary&lt;/a&gt; of UEFI (BIOS) config for Windows 11&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Boot Mode: UEFI&lt;/li&gt;
@@ -92,12 +100,12 @@
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: While starting/restarting your PC press “F2 for BIOS setup” and “F12 for Boot Menu”.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Tip&lt;/strong&gt;: While starting/restarting your PC press “F2 for UEFI (BIOS) setup” and “F12 for Boot Menu”.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.dell.com/support/home/en-us?app=drivers&quot; rel=&quot;nofollow&quot;&gt;Drivers &amp;amp; Downloads&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Further resources for Dell PC: &lt;a href=&quot;https://www.dell.com/support/home/en-us?app=drivers&quot; rel=&quot;nofollow&quot;&gt;Drivers &amp;amp; Downloads&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Good Luck :-)&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn how to configure Dell Inspiron 13 7000 7370 Laptop for Microsoft Windows 11 operating system.</summary></entry><entry><title type="html">How to remove Office 2019/16 product key on Windows</title><link href="https://milanaryal.com.np/how-to-remove-office-product-key/" rel="alternate" type="text/html" title="How to remove Office 2019/16 product key on Windows" /><published>2021-06-20T07:00:00+05:45</published><updated>2021-06-20T07:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-remove-office-product-key</id><content type="html" xml:base="https://milanaryal.com.np/how-to-remove-office-product-key/">&lt;p&gt;1. Open a PowerShell (or command prompt) as Administrator&lt;/p&gt;
+&lt;p&gt;I hope this helps someone! :-)&lt;/p&gt;</content><author><name>Milan Aryal</name><uri>https://twitter.com/MilanAryal</uri></author><summary type="html">Learn configuring the UEFI (BIOS) of Dell Inspiron 13 7000 7370 Laptop for Microsoft Windows 11 operating system.</summary></entry><entry><title type="html">How to remove Office 2019/16 product key on Windows</title><link href="https://milanaryal.com.np/how-to-remove-office-product-key/" rel="alternate" type="text/html" title="How to remove Office 2019/16 product key on Windows" /><published>2021-06-20T07:00:00+05:45</published><updated>2021-06-20T07:00:00+05:45</updated><id>https://milanaryal.com.np/how-to-remove-office-product-key</id><content type="html" xml:base="https://milanaryal.com.np/how-to-remove-office-product-key/">&lt;p&gt;1. Open a PowerShell (or command prompt) as Administrator&lt;/p&gt;
 
 &lt;p&gt;2. In the PowerShell (or command prompt), type the following:&lt;/p&gt;
 
